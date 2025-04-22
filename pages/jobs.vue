@@ -25,21 +25,35 @@
     <!-- Job Listings -->
     <div class="space-y-6">
       <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-6 border-b pb-2 border-brand-gray-light">Aktuelle Vakanzen</h2>
-      <!-- Loading State -->
-      <div v-if="loading" class="text-center text-gray-600">Lade Stellenangebote...</div>
+      <!-- Loading State (Initial Load) -->
+      <div v-if="loading && jobs.length === 0" class="text-center text-gray-600">Lade Stellenangebote...</div>
       <!-- Error State -->
       <div v-else-if="error" class="text-center text-red-600">Fehler beim Laden der Stellenangebote: {{ error.message }}</div>
       <!-- Job Items -->
       <div v-else-if="jobs.length > 0" v-for="job in jobs" :key="job.job_id" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border-l-4" :class="job.json?.is_internal ? 'border-brand-green' : 'border-brand-orange'">
         <h3 class="text-xl font-semibold text-brand-orange mb-2">{{ job.json?.title || 'Unbenannte Stelle' }}</h3>
         <p class="text-brand-gray-medium text-sm mb-1">Standort: {{ job.json?.location || 'Nicht angegeben' }}</p>
-        <p class="text-gray-700 text-sm mb-3">{{ job.json?.short_description || 'Keine Beschreibung verfügbar...' }}</p>
-        <NuxtLink :to="`/jobs/${job.job_id}`" class="text-brand-dark-blue hover:underline font-semibold inline-flex items-center">
+        <!-- Changed key for short description -->
+        <p class="text-gray-700 text-sm mb-3">{{ job.json.jobad_introduction || 'Keine Beschreibung verfügbar...' }}</p>
+        <NuxtLink :to="`/job/${job.job_id}`" class="text-brand-dark-blue hover:underline font-semibold inline-flex items-center">
             Mehr erfahren <span class="ml-1">→</span>
         </NuxtLink>
       </div>
-      <!-- No Jobs Found -->
-      <div v-else class="text-center text-gray-600">Aktuell sind keine offenen Stellen verfügbar.</div>
+      <!-- No Jobs Found (After initial load) -->
+      <div v-else-if="!loading && jobs.length === 0" class="text-center text-gray-600">Aktuell sind keine offenen Stellen verfügbar.</div>
+
+      <!-- Load More Section -->
+      <div class="text-center pt-4">
+        <div v-if="loadingMore" class="text-gray-600">Lade weitere Stellen...</div>
+        <button
+          v-else-if="hasMoreJobs"
+          @click="loadMoreJobs"
+          :disabled="loadingMore"
+          class="bg-brand-dark-blue hover:bg-opacity-90 text-white font-semibold py-2 px-6 rounded transition duration-300 shadow disabled:opacity-50"
+        >
+          Mehr laden
+        </button>
+      </div>
 
       <p class="text-center text-gray-600 pt-4">Keine passende Stelle gefunden? <NuxtLink to="/kandidaten" class="text-brand-orange hover:underline font-semibold">Initiativ bewerben!</NuxtLink></p>
     </div>
@@ -65,34 +79,64 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const jobs = ref([]);
-const loading = ref(true);
+const loading = ref(true); // For initial load
+const loadingMore = ref(false); // For loading more jobs
 const error = ref(null);
+const limit = ref(10); // Number of jobs to fetch per page
+const offset = ref(0); // Current offset
+const hasMoreJobs = ref(true); // Flag to indicate if more jobs might be available
 
-// Fetch jobs from Supabase
-const fetchJobs = async () => {
-  loading.value = true;
+// Fetch jobs from Supabase with pagination
+const fetchJobs = async (isInitialLoad = false) => {
+  if (isInitialLoad) {
+    loading.value = true;
+    offset.value = 0; // Reset offset for initial load
+    jobs.value = []; // Clear existing jobs for initial load
+  } else {
+    loadingMore.value = true;
+  }
   error.value = null;
+
   try {
     const { data, error: fetchError } = await supabase
       .from('public_job_ads')
       .select('job_id, json') // Select job_id and the json column
-      .eq('is_public', true); // Filter for public jobs
+      .eq('is_public', true) // Filter for public jobs
+      .range(offset.value, offset.value + limit.value - 1); // Apply range for pagination
 
     if (fetchError) throw fetchError;
 
-    // Assuming 'json' column contains job details like title, location, short_description, is_internal
-    jobs.value = data || [];
+    const fetchedJobs = data || [];
+    jobs.value = [...jobs.value, ...fetchedJobs]; // Append new jobs
+
+    // Update offset for the next fetch
+    offset.value += fetchedJobs.length;
+
+    // Check if there might be more jobs
+    hasMoreJobs.value = fetchedJobs.length === limit.value;
+
   } catch (err) {
     console.error('Error fetching jobs:', err);
     error.value = err;
   } finally {
-    loading.value = false;
+    if (isInitialLoad) {
+      loading.value = false;
+    } else {
+      loadingMore.value = false;
+    }
   }
 };
 
-// Fetch jobs when the component is mounted
+// Function to load the next batch of jobs
+const loadMoreJobs = () => {
+  if (!loadingMore.value && hasMoreJobs.value) {
+    fetchJobs(false); // Fetch next page, not initial load
+  }
+};
+
+// Fetch initial jobs when the component is mounted
 onMounted(() => {
-  fetchJobs();
+  fetchJobs(true); // Perform initial load
 });
 
 useHead({
