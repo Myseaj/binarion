@@ -37,6 +37,7 @@
             exact-active-class="text-brand-orange border-brand-orange font-medium"
           >Karriere</NuxtLink>
           <NuxtLink
+            v-if="false" 
             to="/blog"
             class="pb-1 border-b-2 border-transparent hover:border-brand-orange hover:text-brand-orange transition-all duration-300"
             exact-active-class="text-brand-orange border-brand-orange font-medium"
@@ -44,12 +45,12 @@
         </div>
       </div>
 
-      <!-- Contact Button - Desktop -->
+      <!-- Jobs Button - Desktop -->
       <div class="hidden md:block">
         <NuxtLink
-          to="/kontakt"
+          to="/jobs"
           class="bg-brand-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-colors duration-300 text-sm"
-        >Kontakt</NuxtLink>
+        >Jobs</NuxtLink>
       </div>
 
 
@@ -81,7 +82,7 @@
         <NuxtLink @click="closeMenu" to="/jobs" class="block px-4 py-3 hover:bg-brand-orange hover:text-white transition-colors duration-300" exact-active-class="bg-brand-orange text-white font-semibold">Jobs</NuxtLink>
         <NuxtLink @click="closeMenu" to="/ueber-uns" class="block px-4 py-3 hover:bg-brand-orange hover:text-white transition-colors duration-300" exact-active-class="bg-brand-orange text-white font-semibold">Über uns</NuxtLink>
         <NuxtLink @click="closeMenu" to="/karriere" class="block px-4 py-3 hover:bg-brand-orange hover:text-white transition-colors duration-300" exact-active-class="bg-brand-orange text-white font-semibold">Karriere</NuxtLink>
-        <NuxtLink @click="closeMenu" to="/blog" class="block px-4 py-3 hover:bg-brand-orange hover:text-white transition-colors duration-300" exact-active-class="bg-brand-orange text-white font-semibold">Blog</NuxtLink>
+        <NuxtLink v-if="false" @click="closeMenu" to="/blog" class="block px-4 py-3 hover:bg-brand-orange hover:text-white transition-colors duration-300" exact-active-class="bg-brand-orange text-white font-semibold">Blog</NuxtLink>
         <NuxtLink @click="closeMenu" to="/kontakt" class="block px-4 py-3 bg-gray-50 hover:bg-brand-orange hover:text-white transition-colors duration-300 font-medium" exact-active-class="bg-brand-orange text-white font-semibold">Kontakt</NuxtLink>
       </div>
     </transition>

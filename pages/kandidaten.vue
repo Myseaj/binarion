@@ -3,9 +3,13 @@
     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark-blue mb-6">Karriere mit Fundament – Finde Deinen Platz im Bauwesen</h1>
     <p class="text-lg text-gray-700 mb-8">Du bist Fachkraft in der Bau- und Immobilienbranche und suchst eine neue Herausforderung? Dann bist Du bei uns genau richtig! Als spezialisierte Personalberatung vermitteln wir Dich an Top-Arbeitgeber in den Bereichen Hochbau, TGA, Tiefbau, Elektrotechnik und mehr.</p>
 
-    <!-- Placeholder for Hero Image -->
-    <div class="bg-brand-gray-light border border-brand-gray-medium h-56 mb-10 rounded-lg flex items-center justify-center text-brand-gray-medium italic text-xl font-bold">
-      [Bild: Moderner Bau / Ingenieurwesen]
+    <!-- Parallax Hero Image Section -->
+    <div
+      class="h-64 md:h-80 lg:h-96 mb-10 rounded-lg bg-cover bg-center bg-fixed"
+      style="background-image: url('/img/partner/partner_header.jpg');"
+      aria-label="Hintergrundbild Bauwesen Karriere"
+    >
+      <!-- Content inside the parallax section can be added here if needed -->
     </div>
 
     <section class="mb-12">

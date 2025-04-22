@@ -7,19 +7,27 @@
     <div class="bg-white p-6 rounded-lg shadow-md mb-10">
       <h2 class="text-xl font-semibold text-brand-dark-blue mb-4">Stellensuche</h2>
       <div class="grid md:grid-cols-3 gap-4 mb-4">
-        <input type="text" placeholder="Stichwort (z.B. Bauleiter, TGA)" class="border border-gray-300 p-2 rounded w-full focus:ring-brand-orange focus:border-brand-orange transition duration-150 ease-in-out">
-        <input type="text" placeholder="Ort oder PLZ" class="border border-gray-300 p-2 rounded w-full focus:ring-brand-orange focus:border-brand-orange transition duration-150 ease-in-out">
-        <button class="bg-brand-orange hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded transition duration-300 shadow w-full">
+        <input
+          type="text"
+          v-model="searchTerm"
+          @keyup.enter="performSearch"
+          placeholder="Stichwort (z.B. Bauleiter, TGA)"
+          class="border border-gray-300 p-2 rounded w-full focus:ring-brand-orange focus:border-brand-orange transition duration-150 ease-in-out"
+        >
+        <input
+          type="text"
+          v-model="locationTerm"
+          @keyup.enter="performSearch"
+          placeholder="Ort oder PLZ"
+          class="border border-gray-300 p-2 rounded w-full focus:ring-brand-orange focus:border-brand-orange transition duration-150 ease-in-out"
+        >
+        <button
+          @click="performSearch"
+          class="bg-brand-orange hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded transition duration-300 shadow w-full"
+        >
           Suchen
         </button>
       </div>
-       <!-- Filter for internal/external jobs -->
-       <div>
-         <label class="inline-flex items-center text-sm text-gray-600">
-           <input type="checkbox" class="form-checkbox h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
-           <span class="ml-2">Nur interne Stellen bei Bricks & Minds anzeigen</span>
-         </label>
-       </div>
     </div>
 
     <!-- Job Listings -->
@@ -33,8 +41,9 @@
       <div v-else-if="jobs.length > 0" v-for="job in jobs" :key="job.job_id" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border-l-4" :class="job.json?.is_internal ? 'border-brand-green' : 'border-brand-orange'">
         <h3 class="text-xl font-semibold text-brand-orange mb-2">{{ job.json?.title || 'Unbenannte Stelle' }}</h3>
         <p class="text-brand-gray-medium text-sm mb-1">Standort: {{ job.json?.location || 'Nicht angegeben' }}</p>
-        <!-- Changed key for short description -->
-        <p class="text-gray-700 text-sm mb-3">{{ job.json.jobad_introduction || 'Keine Beschreibung verfügbar...' }}</p>
+        <p class="text-gray-700 text-sm mb-3">
+          <span class="font-medium text-brand-gray-medium">Gehaltsrahmen:</span> {{ job.json?.salary_range || 'Nicht angegeben' }}
+        </p>
         <NuxtLink :to="`/job/${job.job_id}`" class="text-brand-dark-blue hover:underline font-semibold inline-flex items-center">
             Mehr erfahren <span class="ml-1">→</span>
         </NuxtLink>
@@ -82,27 +91,42 @@ const jobs = ref([]);
 const loading = ref(true); // For initial load
 const loadingMore = ref(false); // For loading more jobs
 const error = ref(null);
-const limit = ref(10); // Number of jobs to fetch per page
+const limit = ref(50); // Number of jobs to fetch per page
 const offset = ref(0); // Current offset
 const hasMoreJobs = ref(true); // Flag to indicate if more jobs might be available
+const searchTerm = ref(''); // Added for keyword search
+const locationTerm = ref(''); // Added for location search
 
-// Fetch jobs from Supabase with pagination
-const fetchJobs = async (isInitialLoad = false) => {
+// Fetch jobs from Supabase with pagination and search
+const fetchJobs = async (isInitialLoad = false, search = '', location = '') => {
   if (isInitialLoad) {
     loading.value = true;
-    offset.value = 0; // Reset offset for initial load
-    jobs.value = []; // Clear existing jobs for initial load
+    offset.value = 0; // Reset offset for initial load/new search
+    jobs.value = []; // Clear existing jobs for initial load/new search
   } else {
     loadingMore.value = true;
   }
   error.value = null;
 
   try {
-    const { data, error: fetchError } = await supabase
+    let query = supabase
       .from('public_job_ads')
       .select('job_id, json') // Select job_id and the json column
-      .eq('is_public', true) // Filter for public jobs
+      .eq('is_public', true); // Filter for public jobs
+
+    // Apply search filters if terms are provided
+    if (search) {
+      query = query.ilike('json->>title', `%${search}%`);
+    }
+    if (location) {
+      query = query.ilike('json->>location', `%${location}%`);
+    }
+
+    // Apply pagination (Removed ordering by created_at)
+    query = query
       .range(offset.value, offset.value + limit.value - 1); // Apply range for pagination
+
+    const { data, error: fetchError } = await query;
 
     if (fetchError) throw fetchError;
 
@@ -112,7 +136,7 @@ const fetchJobs = async (isInitialLoad = false) => {
     // Update offset for the next fetch
     offset.value += fetchedJobs.length;
 
-    // Check if there might be more jobs
+    // Check if there might be more jobs based on the limit
     hasMoreJobs.value = fetchedJobs.length === limit.value;
 
   } catch (err) {
@@ -127,16 +151,23 @@ const fetchJobs = async (isInitialLoad = false) => {
   }
 };
 
-// Function to load the next batch of jobs
+// Function to trigger a new search
+const performSearch = () => {
+  // Pass current search terms for the initial load of the filtered list
+  fetchJobs(true, searchTerm.value, locationTerm.value);
+};
+
+// Function to load the next batch of jobs (respecting current search terms)
 const loadMoreJobs = () => {
   if (!loadingMore.value && hasMoreJobs.value) {
-    fetchJobs(false); // Fetch next page, not initial load
+    // Pass current search terms for subsequent loads
+    fetchJobs(false, searchTerm.value, locationTerm.value);
   }
 };
 
-// Fetch initial jobs when the component is mounted
+// Fetch initial jobs (or perform initial empty search) when the component is mounted
 onMounted(() => {
-  fetchJobs(true); // Perform initial load
+  performSearch(); // Perform initial fetch (which might be an empty search)
 });
 
 useHead({

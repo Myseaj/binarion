@@ -45,11 +45,11 @@
       </div>
     </section>
 
-    <section class="mb-12">
+    <section class="mb-12" v-if="false">
       <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-4">Lerne unser Team kennen</h2>
-      <p class="text-gray-700 mb-4">Unser Erfolg basiert auf einem Team aus erfahrenen Branchenexperten, Recruiting-Spezialisten und digitalen Innovatoren. Wir sind Profis mit Leidenschaft für die Bau- und Immobilienbranche und bringen Kandidaten und Unternehmen mit Fingerspitzengefühl zusammen.</p>
-      <!-- Placeholder for Team Pictures/Profiles -->
-      <div class="bg-brand-gray-light border border-brand-gray-medium h-48 mb-4 rounded-lg flex items-center justify-center text-brand-gray-medium italic">[Bereich für Team-Vorstellung / Fotos]</div>
+      <p class="text-gray-700 mb-6">Unser Erfolg basiert auf einem Team aus erfahrenen Branchenexperten, Recruiting-Spezialisten und digitalen Innovatoren. Wir sind Profis mit Leidenschaft für die Bau- und Immobilienbranche und bringen Kandidaten und Unternehmen mit Fingerspitzengefühl zusammen.</p>
+      <!-- Team Photo Collage -->
+      
       <NuxtLink to="/karriere" class="text-brand-orange hover:underline font-semibold inline-flex items-center">
         Werde Teil des Teams! <span class="ml-1">→</span>
       </NuxtLink>
@@ -57,22 +57,50 @@
 
     <section class="mb-12">
         <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-4">Einblicke in unsere Arbeit</h2>
-        <p class="text-gray-700 mb-4">Erhalten Sie einen Eindruck von Bricks & Minds – sehen Sie sich unser Imagevideo an und lernen Sie uns besser kennen:</p>
-        <!-- Placeholder for Imagevideo -->
-        <div class="bg-brand-gray-light border border-brand-gray-medium h-64 mb-4 rounded-lg flex items-center justify-center text-brand-gray-medium italic">[Placeholder: Imagevideo]</div>
-        <a href="[Link zum Video]" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-semibold inline-flex items-center">
-            Video ansehen <span class="ml-1">→</span>
-        </a>
+        <p class="text-gray-700 mb-6">Erhalten Sie einen Eindruck von Bricks & Minds:</p>
+        <!-- First Impression - Updated Collage -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <!-- Image 1 -->
+            <div class="bg-white p-2 rounded-lg shadow-md md:col-span-2">
+                <img src="/img/TA Fotos/Waldemar bearbeitet/CKS05879_sw.jpg" alt="Teammitglied Bricks & Minds 1" class="rounded object-cover w-full h-full">
+            </div>
+            <!-- Image 2 -->
+            <div class="bg-white p-2 rounded-lg shadow-md">
+                <img src="/img/TA Fotos/allgemein bearbeitet/CKS05349_sw.jpg" alt="Teammitglied Bricks & Minds 2" class="rounded object-cover w-full h-full">
+            </div>
+             <!-- Image 3 -->
+             <div class="bg-white p-2 rounded-lg shadow-md">
+                <img src="/img/TA Fotos/allgemein bearbeitet/CKS05362_sw.jpg" alt="Teammitglied Bricks & Minds 3" class="rounded object-cover w-full h-full">
+            </div>
+            <!-- Image 4 -->
+            <div class="bg-white p-2 rounded-lg shadow-md">
+                 <img src="/img/TA Fotos/allgemein bearbeitet/CKS06031_sw.jpg" alt="Teammitglied Bricks & Minds 4" class="rounded object-cover w-full h-full">
+            </div>
+            <!-- Image 5 -->
+            <div class="bg-white p-2 rounded-lg shadow-md md:col-span-3">
+                <img src="/img/TA Fotos/Waldemar bearbeitet/CKS05843_sw.jpg" alt="Teammitglied Bricks & Minds 5" class="rounded object-cover w-full h-full">
+            </div>
+            <!-- Add more images wrapped in styled divs as needed -->
+        </div>
     </section>
 
     <section class="mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-4">Zusätzliche Impressionen</h2>
-        <p class="text-gray-700 mb-4">Lernen Sie mehr über unsere Arbeitsweise und unser Team durch unsere Video-Vorstellung:</p>
+        <h2 class="text-2xl md:text-3xl font-semibold text-brand-dark-blue mb-4">TA Management 3 Jahre Jubiläum</h2>
+        <p class="text-gray-700 mb-4">
+        </p>
         <!-- Placeholder for Bits & Birds Example Video -->
-        <div class="bg-brand-gray-light border border-brand-gray-medium h-64 mb-4 rounded-lg flex items-center justify-center text-brand-gray-medium italic">[Placeholder: Beispiel Video]</div>
-        <a href="[Link zum Video]" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline font-semibold inline-flex items-center">
-            Beispiel-Video ansehen <span class="ml-1">→</span>
-        </a>
+        <iframe
+          width="100%"
+          height="600"
+          src="https://www.youtube.com/embed/HsCQ9kq7cUM?si=PR5H1unzbWCx4KQy"
+          title="TA Management 3 Jahre Jubiläum"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          class="video-iframe"
+        >
+        </iframe>
     </section>
 
     <section class="text-center bg-brand-dark-blue text-white p-8 md:p-12 rounded-lg shadow-lg">
