@@ -1,0 +1,1 @@
+export { default } from "file:///Users/matthiashillebrand/Documents/Homepages/Binarion/binarion/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
