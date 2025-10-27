@@ -9,7 +9,7 @@
          <NuxtLink to="/datenschutz" class="hover:text-white transition-colors duration-300 mx-2">Datenschutz</NuxtLink>
          <!-- Add more links as needed -->
       </div>
-      <p class="text-center border-t border-gray-700 pt-6">&copy; {{ new Date().getFullYear() }} Bricks & Minds. Alle Rechte vorbehalten.</p>
+      <p class="text-center border-t border-gray-700 pt-6">&copy; {{ new Date().getFullYear() }} BINARION. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 </template>

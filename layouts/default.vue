@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col min-h-screen bg-brand-gray-light text-gray-800">
+  <div class="min-h-screen bg-[#07121a]">
     <AppHeader />
-    <main class="flex-grow container mx-auto px-4 py-8">
+    <main>
       <slot />
     </main>
     <AppFooter />
@@ -9,14 +9,24 @@
 </template>
 
 <script setup>
-// Import components if they are not auto-imported
-// import AppHeader from '~/components/AppHeader.vue';
-// import AppFooter from '~/components/AppFooter.vue';
+// Components are auto-imported in Nuxt 3
 </script>
 
 <style>
-/* Global styles if needed */
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: sans-serif; /* Example font */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
