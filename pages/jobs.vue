@@ -431,6 +431,9 @@ async function getJobsFeed() {
   };
   var response = await fetch(url, options);
   var jobResponse = await response.clone().json();
+  jobResponse = jobResponse.filter(
+    (job) => job.json.mandator_id == 3,
+  );
   for (var i = 0; i < jobResponse.length; i++) {
     var location = jobResponse[i].json.location;
     locations.push(location.trim());
@@ -456,7 +459,7 @@ async function getJobsFeed() {
   jobs.value = [];
   jobResponse.forEach((item) => {
     jobs.value.push(item.json);
-  });
+});
   var locations = locations.filter((c, index) => {
     return locations.indexOf(c) === index;
   });

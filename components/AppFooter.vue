@@ -4,7 +4,7 @@
       <!-- Add columns or more complex structure here if needed -->
       <div class="text-center mb-4">
          <!-- Placeholder for logo if desired -->
-         <!-- <img src="/path/to/logo-white.svg" alt="Bricks & Minds Logo" class="h-8 mx-auto mb-4"> -->
+         <!-- <img src="/path/to/logo-white.svg" alt="Binarion Logo" class="h-8 mx-auto mb-4"> -->
          <NuxtLink to="/impressum" class="hover:text-white transition-colors duration-300 mx-2">Impressum</NuxtLink> |
          <NuxtLink to="/datenschutz" class="hover:text-white transition-colors duration-300 mx-2">Datenschutz</NuxtLink>
          <!-- Add more links as needed -->

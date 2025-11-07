@@ -12,10 +12,10 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Bricks & Minds', // Default title
+      title: 'Binarion', // Default title
       meta: [
         // Default description
-        { name: 'description', content: 'Bricks & Minds – Die Boutique-Personalberatung für Fach- und Führungskräfte im Bauwesen.' }
+        { name: 'description', content: 'Binarion – Die 1 im digitalen Recruiting.' }
       ],
       // Add link to favicon, etc. if needed
       // link: [

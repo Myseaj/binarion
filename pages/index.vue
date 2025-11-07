@@ -67,8 +67,8 @@
 
           <!-- Subheadline -->
           <p class="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Wir verbinden Top-IT-Professionals mit innovativen Unternehmen. 
-            Präzise. Digital. Erstklassig.
+            Wir sind keine klassischen Recruiter. Wir sind ein Tech-Unternehmen mit eigenem Entwicklerteam. 
+            Das macht uns schneller, präziser und technisch kompetenter als jeden Wettbewerber.
           </p>
 
           <!-- CTA Buttons with Advanced Effects -->
@@ -87,7 +87,7 @@
                 </svg>
               </span>
             </button>
-            <button class="group relative px-8 py-4 bg-transparent border-2 border-[#3dd2cc] text-[#3dd2cc] font-bold rounded-lg text-lg overflow-hidden transition-all duration-300 hover:scale-105"
+            <NuxtLink to="/jobs" class="group relative px-8 py-4 bg-transparent border-2 border-[#3dd2cc] text-[#3dd2cc] font-bold rounded-lg text-lg overflow-hidden transition-all duration-300 hover:scale-105"
                     @mouseenter="button2Hovered = true"
                     @mouseleave="button2Hovered = false">
               <!-- Scan Effect -->
@@ -101,7 +101,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </span>
-            </button>
+            </NuxtLink>
           </div>
 
           <!-- Stats with Counter Animation -->
@@ -119,13 +119,29 @@
               </div>
               <div class="text-sm lg:text-base text-gray-400 transition-colors duration-300"
                    :class="{ 'text-[#66dcd7]': hoveredStat === 0 }">
-                Erfolgreiche Vermittlungen
+                Aktive Kandidaten
               </div>
             </div>
             <div class="text-center border-x border-[#3dd2cc]/30 group cursor-pointer" @mouseenter="hoveredStat = 1" @mouseleave="hoveredStat = null">
               <div class="relative inline-block">
                 <div class="text-4xl lg:text-5xl font-bold text-[#3dd2cc] mb-2 transition-all duration-300"
                      :class="{ 'scale-110': hoveredStat === 1 }">
+                  &lt;{{ animatedStats.responseTime }}
+                </div>
+                <!-- Clock Icon Animation -->
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div class="clock-hand"></div>
+                </div>
+              </div>
+              <div class="text-sm lg:text-base text-gray-400 transition-colors duration-300"
+                   :class="{ 'text-[#66dcd7]': hoveredStat === 1 }">
+                Reaktionszeit in Stunden
+              </div>
+            </div>
+            <div class="text-center group cursor-pointer" @mouseenter="hoveredStat = 2" @mouseleave="hoveredStat = null">
+              <div class="relative inline-block">
+                <div class="text-4xl lg:text-5xl font-bold text-[#3dd2cc] mb-2 transition-all duration-300"
+                     :class="{ 'scale-110': hoveredStat === 2 }">
                   {{ animatedStats.satisfaction }}%
                 </div>
                 <!-- Progress Circle -->
@@ -137,24 +153,8 @@
                 </svg>
               </div>
               <div class="text-sm lg:text-base text-gray-400 transition-colors duration-300"
-                   :class="{ 'text-[#66dcd7]': hoveredStat === 1 }">
-                Zufriedenheitsrate
-              </div>
-            </div>
-            <div class="text-center group cursor-pointer" @mouseenter="hoveredStat = 2" @mouseleave="hoveredStat = null">
-              <div class="relative inline-block">
-                <div class="text-4xl lg:text-5xl font-bold text-[#3dd2cc] mb-2 transition-all duration-300"
-                     :class="{ 'scale-110': hoveredStat === 2 }">
-                  {{ animatedStats.responseTime }}h
-                </div>
-                <!-- Clock Icon Animation -->
-                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div class="clock-hand"></div>
-                </div>
-              </div>
-              <div class="text-sm lg:text-base text-gray-400 transition-colors duration-300"
                    :class="{ 'text-[#66dcd7]': hoveredStat === 2 }">
-                Durchschn. Reaktionszeit
+                Softwaregestützt
               </div>
             </div>
           </div>
@@ -181,10 +181,10 @@
       <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
           <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Warum <span class="text-[#3dd2cc]">Binarion</span>?
+            Was uns von klassischen Recruitern <span class="text-[#3dd2cc]">unterscheidet</span>
           </h3>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-            Wir setzen neue Maßstäbe im IT-Recruiting
+            Unser eigenes Entwicklerteam ist nicht nur Marketing. Es ist unser Fundament.
           </p>
         </div>
 
@@ -203,14 +203,14 @@
             <div class="relative z-10">
               <div class="w-14 h-14 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative overflow-hidden">
                 <svg class="w-8 h-8 text-[#07121a] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <!-- Icon Pulse -->
                 <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500 rounded-lg"></div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Blitzschnell</h4>
+              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Technisches Tiefenwissen</h4>
               <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                Digitale Prozesse ermöglichen uns eine Reaktionszeit von unter 24 Stunden. Ihre Anfrage ist unsere Priorität.
+                Wir verstehen den Unterschied zwischen Microservices und Monolithen, zwischen React und Vue, zwischen SQL und NoSQL. Weil wir es täglich selbst entwickeln. Keine Buzzword-Bingo – echtes Tech-Verständnis.
               </p>
               <!-- Binary Data Stream -->
               <div class="mt-4 font-mono text-xs text-[#3dd2cc] opacity-0 group-hover:opacity-30 transition-opacity duration-500">
@@ -235,13 +235,13 @@
             <div class="relative z-10">
               <div class="w-14 h-14 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative overflow-hidden">
                 <svg class="w-8 h-8 text-[#07121a] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                 </svg>
                 <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500 rounded-lg"></div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Präzise</h4>
+              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Kommunikation auf Augenhöhe</h4>
               <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                KI-gestützte Matching-Algorithmen finden die perfekte Übereinstimmung zwischen Kandidaten und Unternehmen.
+                Ihre Kandidaten merken sofort: Hier sitzt kein HR-Generalist, sondern jemand, der ihre Sprache spricht. Ihre CTOs wissen: Wir verstehen ihre technischen Probleme wirklich. Das schafft Vertrauen – auf beiden Seiten.
               </p>
               <!-- AI Processing Indicator -->
               <div class="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -250,7 +250,7 @@
                   <div class="w-2 h-2 bg-[#3dd2cc] rounded-full animate-pulse delay-100"></div>
                   <div class="w-2 h-2 bg-[#3dd2cc] rounded-full animate-pulse delay-200"></div>
                 </div>
-                <span class="text-xs text-[#3dd2cc] font-mono">AI Processing...</span>
+                <span class="text-xs text-[#3dd2cc] font-mono">Matching...</span>
               </div>
             </div>
           </div>
@@ -278,18 +278,18 @@
             <div class="relative z-10">
               <div class="w-14 h-14 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative overflow-hidden">
                 <svg class="w-8 h-8 text-[#07121a] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
                 <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500 rounded-lg"></div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Persönlich</h4>
+              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Schnelle, moderne Prozesse</h4>
               <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                Trotz digitaler Excellence bleibt der Mensch im Mittelpunkt. Persönliche Betreuung ist unser Versprechen.
+                Unsere intern entwickelte Software optimiert jeden Schritt: vom Sourcing bis zum Match. Datengetrieben, automatisiert, wo sinnvoll – menschlich, wo nötig. Reaktionszeit unter 12 Stunden. Keine Zeitverschwendung.
               </p>
               <!-- Connection Status -->
               <div class="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div class="w-2 h-2 bg-[#3dd2cc] rounded-full pulse-glow"></div>
-                <span class="text-xs text-[#3dd2cc] font-mono">Online & Connected</span>
+                <span class="text-xs text-[#3dd2cc] font-mono">System Active</span>
               </div>
             </div>
           </div>
@@ -305,7 +305,7 @@
             Unsere <span class="text-[#3dd2cc]">Leistungen</span>
           </h3>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-            Maßgeschneiderte Recruiting-Lösungen für die IT-Branche
+            Präzise Vermittlung in den gefragtesten IT-Bereichen
           </p>
         </div>
 
@@ -318,34 +318,35 @@
               </div>
               <div>
                 <h4 class="text-2xl font-bold text-white mb-4">Für Unternehmen</h4>
+                <p class="text-gray-400 mb-6">Sie suchen nicht irgendwen. Sie suchen jemanden, der Ihr Tech-Problem versteht und lösen kann. Wir auch.</p>
                 <ul class="space-y-3 text-gray-300">
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Executive Search für IT-Führungskräfte</span>
+                    <span>Präzise Direktvermittlung – keine Streuverluste</span>
                   </li>
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Direktvermittlung von IT-Spezialisten</span>
+                    <span>Executive Search für Tech-Leadership</span>
                   </li>
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Team-Building & Projektbesetzung</span>
+                    <span>Team-Building für komplexe Tech-Projekte</span>
                   </li>
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Employer Branding Beratung</span>
+                    <span>Technische Vorqualifikation durch Entwickler</span>
                   </li>
                 </ul>
                 <button class="mt-6 px-6 py-3 bg-[#3dd2cc] text-[#07121a] font-bold rounded-lg hover:bg-[#66dcd7] transition-colors duration-300">
-                  Talente finden →
+                  Jetzt anfragen →
                 </button>
               </div>
             </div>
@@ -358,36 +359,37 @@
                 <span class="text-2xl font-bold text-[#07121a]">0</span>
               </div>
               <div>
-                <h4 class="text-2xl font-bold text-white mb-4">Für IT-Professionals</h4>
+                <h4 class="text-2xl font-bold text-white mb-4">Für IT-Kandidaten</h4>
+                <p class="text-gray-400 mb-6">Endlich ein Recruiter, der Ihren Stack kennt. Kein Buzzword-Bingo. Echte Fachgespräche.</p>
                 <ul class="space-y-3 text-gray-300">
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Karriereberatung & Positionierung</span>
+                    <span>Technische Beratung auf Augenhöhe</span>
                   </li>
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Zugang zu exklusiven IT-Positionen</span>
+                    <span>Zugang zu Tech-Unternehmen, die matchen</span>
                   </li>
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Gehalts- & Vertragsverhandlung</span>
+                    <span>Karriere-Coaching von Tech-Profis</span>
                   </li>
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Kostenloser Service für Kandidaten</span>
+                    <span>100% kostenlos für Sie</span>
                   </li>
                 </ul>
-                <button class="mt-6 px-6 py-3 bg-[#29b3ad] text-[#07121a] font-bold rounded-lg hover:bg-[#66dcd7] transition-colors duration-300">
+                <NuxtLink to="/jobs" class="mt-6 inline-block px-6 py-3 bg-[#29b3ad] text-[#07121a] font-bold rounded-lg hover:bg-[#66dcd7] transition-colors duration-300">
                   Jobs entdecken →
-                </button>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -400,53 +402,193 @@
       <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
           <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Unsere <span class="text-[#3dd2cc]">Expertise</span>
+            Unsere <span class="text-[#3dd2cc]">Spezialisierungen</span>
           </h3>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-            Wir vermitteln Talente in allen relevanten Tech-Bereichen
+            Fokussiert auf die gefragtesten Tech-Profile mit höchstem ROI
           </p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">💻</div>
-            <h5 class="text-white font-bold mb-2">Software Development</h5>
-            <p class="text-sm text-gray-400">Full Stack, Backend, Frontend</p>
+          <!-- IT Project Management -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 0"
+               @mouseleave="hoveredExpertise = null">
+            <!-- Animated Background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <!-- Icon Container with Glow -->
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">🥇</div>
+                <!-- Pulse Effect -->
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">IT Project Management</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">PMP, Scrum, SAFe, Agile</p>
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">PMP</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">SAFe</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Scrum Master</span>
+            </div>
+            <!-- Corner Accents -->
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">☁️</div>
-            <h5 class="text-white font-bold mb-2">Cloud & DevOps</h5>
-            <p class="text-sm text-gray-400">AWS, Azure, Kubernetes</p>
+
+          <!-- ERP/SAP Consulting -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 1"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">💼</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">ERP/SAP Consulting</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">S/4HANA, Module, Integration</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">S/4HANA</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">SAP FICO</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">SAP MM</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">🤖</div>
-            <h5 class="text-white font-bold mb-2">AI & Data Science</h5>
-            <p class="text-sm text-gray-400">ML, Analytics, Big Data</p>
+
+          <!-- Cloud & DevOps -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 2"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">☁️</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Cloud & DevOps</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">AWS, Azure, Kubernetes</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">AWS</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Azure</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">K8s</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">🔒</div>
-            <h5 class="text-white font-bold mb-2">Cybersecurity</h5>
-            <p class="text-sm text-gray-400">Security, Compliance, Risk</p>
+
+          <!-- Cybersecurity -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 3"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">🔐</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Cybersecurity</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Audit, Compliance, CISSP</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">CISSP</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">ISO 27001</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">SOC</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">📱</div>
-            <h5 class="text-white font-bold mb-2">Mobile Development</h5>
-            <p class="text-sm text-gray-400">iOS, Android, React Native</p>
+
+          <!-- IT-Architektur -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 4"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">🏗️</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">IT-Architektur</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Solution, Enterprise, Cloud</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Microservices</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">TOGAF</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Domain-Driven</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">🎨</div>
-            <h5 class="text-white font-bold mb-2">UX/UI Design</h5>
-            <p class="text-sm text-gray-400">Product Design, Research</p>
+
+          <!-- Data Engineering & BI -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 5"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">📊</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Data Engineering & BI</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Analytics, ETL, Data Warehouse</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Python</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">SQL</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Power BI</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">📊</div>
-            <h5 class="text-white font-bold mb-2">Product Management</h5>
-            <p class="text-sm text-gray-400">PO, PM, Agile Lead</p>
+
+          <!-- Senior Full-Stack (Java) -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 6"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">⚡</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Full-Stack Development</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Java, Spring, React, Angular</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Java</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Spring Boot</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">React</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
-          <div class="bg-[#122d42]/60 p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/60 transition-all duration-300 text-center group hover:scale-105">
-            <div class="text-4xl mb-3">⚙️</div>
-            <h5 class="text-white font-bold mb-2">IT Infrastructure</h5>
-            <p class="text-sm text-gray-400">System Admin, Network</p>
+
+          <!-- UI/UX Design -->
+          <div class="expertise-card group relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-6 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc] transition-all duration-500 text-center cursor-pointer overflow-hidden"
+               @mouseenter="hoveredExpertise = 7"
+               @mouseleave="hoveredExpertise = null">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/0 group-hover:from-[#3dd2cc]/10 group-hover:to-[#3dd2cc]/5 transition-all duration-500"></div>
+            <div class="relative z-10 mb-4 inline-block">
+              <div class="w-20 h-20 mx-auto bg-gradient-to-br from-[#3dd2cc]/20 to-[#29b3ad]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden border border-[#3dd2cc]/30">
+                <div class="text-5xl group-hover:scale-110 transition-transform duration-300">🎨</div>
+                <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
+              </div>
+            </div>
+            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">UI/UX Design</h5>
+            <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Product Design, User Research</p>
+            <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Figma</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Sketch</span>
+              <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Adobe XD</span>
+            </div>
+            <div class="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-[#3dd2cc] group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
           </div>
         </div>
       </div>
@@ -464,18 +606,18 @@
 
           <div class="relative z-10 text-center">
             <h3 class="text-4xl lg:text-5xl font-bold text-[#07121a] mb-6">
-              Bereit für den nächsten Schritt?
+              Lassen Sie uns sprechen.
             </h3>
             <p class="text-xl text-[#122d42] mb-10 max-w-2xl mx-auto">
-              Lassen Sie uns gemeinsam die perfekte Lösung für Ihre IT-Recruiting-Herausforderung finden.
+              Ob Unternehmen oder Kandidat: Wenn Sie jemanden suchen, der Tech wirklich versteht – wir sind bereit.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button class="px-10 py-4 bg-[#07121a] text-[#3dd2cc] font-bold rounded-lg text-lg hover:bg-[#122d42] transition-all duration-300 hover:scale-105 shadow-xl">
-                Kontakt aufnehmen
+                Erstgespräch vereinbaren
               </button>
-              <button class="px-10 py-4 bg-transparent border-2 border-[#07121a] text-[#07121a] font-bold rounded-lg text-lg hover:bg-[#07121a] hover:text-[#3dd2cc] transition-all duration-300 hover:scale-105">
-                Mehr erfahren
-              </button>
+              <NuxtLink to="/about" class="px-10 py-4 bg-transparent border-2 border-[#07121a] text-[#07121a] font-bold rounded-lg text-lg hover:bg-[#07121a] hover:text-[#3dd2cc] transition-all duration-300 hover:scale-105">
+                Mehr über uns
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -523,17 +665,18 @@ const button1Hovered = ref(false)
 const button2Hovered = ref(false)
 const hoveredStat = ref(null)
 const hoveredFeature = ref(null)
+const hoveredExpertise = ref(null)
 
 // Typewriter Effect
-const fullText = 'Digitale Talente für Ihre IT-Zukunft'
+const fullText = 'IT-Recruiting auf Code-Ebene'
 const displayText = ref('')
 const currentIndex = ref(0)
 
 // Animated Stats
 const animatedStats = ref({
   placements: 0,
-  satisfaction: 0,
-  responseTime: 0
+  responseTime: 0,
+  satisfaction: 0
 })
 
 // Binary Stream
@@ -668,9 +811,9 @@ onMounted(() => {
   
   // Animate counters
   setTimeout(() => {
-    animateCounter(500, 0, 'placements', 8)
-    animateCounter(98, 0, 'satisfaction', 2)
-    animateCounter(24, 0, 'responseTime', 1)
+    animateCounter(150, 0, 'placements', 3)
+    animateCounter(12, 0, 'responseTime', 1)
+    animateCounter(100, 0, 'satisfaction', 2)
   }, 1000)
 
   // Generate binary stream
@@ -1057,7 +1200,6 @@ onMounted(() => {
     transform: translateX(-50%);
   }
 }
-
 /* Animation Delays */
 .delay-100 {
   animation-delay: 100ms;
@@ -1065,6 +1207,41 @@ onMounted(() => {
 
 .delay-200 {
   animation-delay: 200ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Expertise Card Enhancements */
+.expertise-card {
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+}
+
+.expertise-card:hover {
+  transform: translateY(-8px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(61, 210, 204, 0.2);
+}
+
+/* Slow Ping Animation for Icons */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .delay-700 {

@@ -45,14 +45,14 @@
             <span class="typing-container">{{ typedText }}</span>
             <span class="cursor-blink">|</span>
             <span class="block mt-2 bg-gradient-to-r from-[#66dcd7] via-[#3dd2cc] to-[#29b3ad] bg-clip-text text-transparent animate-gradient">
-              für Ihr Unternehmen
+              in Rekordzeit
             </span>
           </h1>
 
           <!-- Subheadline with Reveal Animation -->
           <p class="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed reveal-text">
-            Wir finden die perfekten IT-Experten für Ihre offenen Positionen – 
-            <span class="text-[#3dd2cc] font-semibold glow-text">schnell, präzise und mit garantiertem Erfolg.</span>
+            Wir sind keine klassischen Recruiter. Wir sind ein Tech-Unternehmen mit eigenem Entwicklerteam. 
+            <span class="text-[#3dd2cc] font-semibold glow-text">Das macht den Unterschied.</span>
           </p>
 
           <!-- CTA Buttons with Advanced Effects -->
@@ -107,7 +107,7 @@
               <div class="relative inline-block transform-gpu transition-all duration-500"
                    :class="{ 'scale-110 rotate-y-12': hoveredStat === 0 }">
                 <div class="text-3xl lg:text-4xl font-bold text-[#3dd2cc] mb-2 relative">
-                  {{ animatedStats.companies }}+
+                  {{ animatedStats.candidates }}+
                   <!-- Orbital Ring -->
                   <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
                     <div class="orbital-ring"></div>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="text-sm text-gray-400 transition-colors duration-300"
                      :class="{ 'text-[#66dcd7]': hoveredStat === 0 }">
-                  Partner-Unternehmen
+                  Aktive Kandidaten
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@
               <div class="relative inline-block transform-gpu transition-all duration-500"
                    :class="{ 'scale-110 rotate-y-12': hoveredStat === 1 }">
                 <div class="text-3xl lg:text-4xl font-bold text-[#3dd2cc] mb-2 relative">
-                  {{ animatedStats.placements }}+
+                  &lt;{{ animatedStats.hours }}h
                   <!-- Progress Ring -->
                   <svg class="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="none" stroke="#3dd2cc" stroke-width="2" opacity="0.2"/>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="text-sm text-gray-400 transition-colors duration-300"
                      :class="{ 'text-[#66dcd7]': hoveredStat === 1 }">
-                  Erfolgreiche Besetzungen
+                  Reaktionszeit
                 </div>
               </div>
             </div>
@@ -156,7 +156,7 @@
               <div class="relative inline-block transform-gpu transition-all duration-500"
                    :class="{ 'scale-110 rotate-y-12': hoveredStat === 2 }">
                 <div class="text-3xl lg:text-4xl font-bold text-[#3dd2cc] mb-2 relative">
-                  {{ animatedStats.days }}
+                  {{ animatedStats.software }}%
                   <!-- Clock Animation -->
                   <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
                     <div class="clock-hands">
@@ -166,7 +166,7 @@
                 </div>
                 <div class="text-sm text-gray-400 transition-colors duration-300"
                      :class="{ 'text-[#66dcd7]': hoveredStat === 2 }">
-                  Ø Time-to-Hire (Tage)
+                  Softwaregestützt
                 </div>
               </div>
             </div>
@@ -180,10 +180,10 @@
       <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
           <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">
-            Unsere <span class="text-[#3dd2cc]" data-text="Recruiting-Services">Recruiting-Services</span>
+            So arbeiten wir <span class="text-[#3dd2cc]" data-text="mit Ihnen">mit Ihnen</span>
           </h2>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-            Maßgeschneiderte Lösungen für Ihre IT-Personalsuche
+            Sie suchen nicht irgendwen. Sie suchen jemanden, der Ihr Tech-Problem versteht. Dafür gibt es uns.
           </p>
         </div>
 
@@ -220,8 +220,8 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-500"></span>
                   </h3>
                   <p class="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                    Professionelle Direktansprache und Active Sourcing von IT-Fachkräften. 
-                    Wir identifizieren die besten Kandidaten für Ihre spezifischen Anforderungen.
+                    Active Sourcing mit technischem Tiefgang. Wir sprechen die Sprache Ihrer Kandidaten – 
+                    weil unser Team selbst aus Entwicklern besteht. Kein Buzzword-Bingo, echtes Verständnis.
                   </p>
                   
                   <ul class="space-y-3 mb-6">
@@ -292,8 +292,8 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-500"></span>
                   </h3>
                   <p class="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                    Diskrete und zielgerichtete Suche nach IT-Führungskräften und Experten 
-                    für strategisch wichtige Positionen in Ihrem Unternehmen.
+                    Führungskräfte für Tech-Rollen brauchen mehr als HR-Floskeln. Sie brauchen Gesprächspartner 
+                    auf Augenhöhe. Unsere Entwickler verstehen, was ein CTO wirklich tut.
                   </p>
                   
                   <ul class="space-y-3 mb-6">
@@ -354,8 +354,8 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-500"></span>
                   </h3>
                   <p class="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                    Aufbau kompletter IT-Teams für Projekte oder neue Abteilungen. 
-                    Wir sorgen für die optimale Zusammenstellung und kulturelle Passung.
+                    Komplette Projektteams schneller aufbauen als je zuvor. Softwaregestützt, datengetrieben 
+                    und mit Fokus auf Skill-Komplementarität. Weil wir wissen, wie Teams wirklich funktionieren.
                   </p>
                   
                   <ul class="space-y-3 mb-6">
@@ -416,8 +416,8 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-500"></span>
                   </h3>
                   <p class="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                    Positionierung als attraktiver Arbeitgeber in der IT-Branche. 
-                    Wir helfen Ihnen, Top-Talente durch starke Arbeitgebermarke zu gewinnen.
+                    IT-Talente gewinnen Sie nicht mit Stock-Fotos. Authentizität zählt. Wir zeigen, 
+                    was Entwickler wirklich sehen wollen – weil wir selbst welche sind.
                   </p>
                   
                   <ul class="space-y-3 mb-6">
@@ -476,11 +476,11 @@
           </div>
           
           <h2 class="text-3xl lg:text-6xl font-bold text-white mb-6">
-            Unser <span class="text-[#3dd2cc]" data-text="Recruiting-Prozess">Recruiting-Prozess</span>
+            So läuft's <span class="text-[#3dd2cc]" data-text="konkret">konkret</span>
           </h2>
           <p class="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
-            Systematisch, transparent und <span class="text-[#3dd2cc] font-semibold">nachweislich erfolgreich</span> – 
-            so bringen wir Top-Talente in Ihr Unternehmen
+            <span class="text-[#3dd2cc] font-semibold">Keine Black Box.</span> Transparente Schritte, 
+            messbare Ergebnisse, maximale Effizienz.
           </p>
         </div>
 
@@ -627,12 +627,12 @@
               <div class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Transparenz</div>
             </div>
             <div class="text-center p-4 bg-[#122d42]/50 border border-[#3dd2cc]/20 rounded-xl backdrop-blur-sm hover:border-[#3dd2cc] transition-all duration-300 hover:scale-105 cursor-pointer group">
-              <div class="text-2xl font-bold text-[#3dd2cc] mb-1 group-hover:scale-110 transition-transform duration-300">45 Tage</div>
-              <div class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Ø Dauer</div>
+              <div class="text-2xl font-bold text-[#3dd2cc] mb-1 group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Softwaregestützt</div>
             </div>
             <div class="text-center p-4 bg-[#122d42]/50 border border-[#3dd2cc]/20 rounded-xl backdrop-blur-sm hover:border-[#3dd2cc] transition-all duration-300 hover:scale-105 cursor-pointer group">
-              <div class="text-2xl font-bold text-[#3dd2cc] mb-1 group-hover:scale-110 transition-transform duration-300">98%</div>
-              <div class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Success Rate</div>
+              <div class="text-2xl font-bold text-[#3dd2cc] mb-1 group-hover:scale-110 transition-transform duration-300">5</div>
+              <div class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Schritte</div>
             </div>
           </div>
         </div>
@@ -644,14 +644,14 @@
       <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
           <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4">
-            Warum <span class="text-[#3dd2cc]">Binarion</span>?
+            Vier Gründe für <span class="text-[#3dd2cc]">Binarion</span>
           </h2>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-            Ihre Vorteile bei der Zusammenarbeit mit uns
+            Was uns von klassischen Recruitern unterscheidet
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 gap-6">
           <div v-for="(benefit, index) in benefits" :key="index"
                class="group relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 p-8 rounded-xl border border-[#3dd2cc]/20 hover:border-[#3dd2cc]/50 transition-all duration-300 hover:-translate-y-1">
             <div class="flex items-start gap-4">
@@ -684,18 +684,18 @@
 
           <div class="relative z-10 text-center">
             <h3 class="text-4xl lg:text-5xl font-bold text-[#07121a] mb-6">
-              Starten Sie jetzt Ihre Talent-Suche
+              Lassen Sie uns sprechen
             </h3>
             <p class="text-xl text-[#122d42] mb-10 max-w-2xl mx-auto">
-              Vereinbaren Sie ein kostenloses Beratungsgespräch und erfahren Sie, 
-              wie wir die besten IT-Talente für Ihr Unternehmen finden.
+              Sie haben eine offene Position? Wir haben Kandidaten, die wirklich passen. 
+              Kostenloses Erstgespräch – Sie entscheiden dann.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button class="px-10 py-4 bg-[#07121a] text-[#3dd2cc] font-bold rounded-lg text-lg hover:bg-[#122d42] transition-all duration-300 hover:scale-105 shadow-xl">
-                Beratungsgespräch buchen
+                Erstgespräch vereinbaren
               </button>
               <button class="px-10 py-4 bg-transparent border-2 border-[#07121a] text-[#07121a] font-bold rounded-lg text-lg hover:bg-[#07121a] hover:text-[#3dd2cc] transition-all duration-300 hover:scale-105">
-                +49 123 456 789
+                Mehr über uns
               </button>
             </div>
           </div>
@@ -832,64 +832,54 @@ const getStepDuration = (index) => {
 const hoveredStat = ref(null)
 
 const animatedStats = ref({
-  companies: 0,
-  placements: 0,
-  days: 0
+  candidates: 0,
+  hours: 0,
+  software: 0
 })
 
 const processSteps = [
   {
     title: 'Briefing',
-    description: 'Analyse Ihrer Anforderungen und Unternehmenskultur'
+    description: 'Wir verstehen Ihren Stack, Ihre Kultur, Ihre Schmerzpunkte – nicht nur die Job Description'
   },
   {
     title: 'Sourcing',
-    description: 'Aktive Suche und Ansprache passender Kandidaten'
+    description: 'Softwaregestützte Kandidatensuche + persönliche Ansprache auf Augenhöhe'
   },
   {
     title: 'Screening',
-    description: 'Vorqualifizierung und technische Bewertung'
+    description: 'Technisches Pre-Screening durch unser Entwicklerteam – wir erkennen echte Skills'
   },
   {
     title: 'Präsentation',
-    description: 'Vorstellen der Top-Kandidaten mit Profilen'
+    description: 'Sie bekommen nur Kandidaten, die wirklich passen. Qualität über Quantität.'
   },
   {
-    title: 'Onboarding',
-    description: 'Begleitung bis zur erfolgreichen Integration'
+    title: 'Prozessbetreuung',
+    description: 'Interviewkoordination, Terminabstimmung und Begleitung bis zur erfolgreichen Besetzung'
   }
 ]
 
 const benefits = [
   {
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>',
-    title: 'Schnelle Besetzung',
-    description: 'Durchschnittliche Time-to-Hire von nur 45 Tagen durch effizienten Prozess'
-  },
-  {
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
-    title: 'Qualitätsgarantie',
-    description: 'Nur vorqualifizierte Kandidaten, die exakt zu Ihren Anforderungen passen'
-  },
-  {
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path></svg>',
-    title: 'Transparente Kosten',
-    description: 'Klare Preismodelle ohne versteckte Gebühren – Sie zahlen nur bei Erfolg'
-  },
-  {
     icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>',
-    title: 'IT-Expertise',
-    description: 'Tiefes Verständnis für Tech-Stacks, Tools und IT-Rollen'
+    title: 'Technisches Tiefenwissen',
+    description: 'Wir verstehen den Unterschied zwischen Microservices und Monolithen, zwischen React und Vue, zwischen Junior und Senior. Keine Buzzwords – echtes Verständnis.'
   },
   {
     icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>',
-    title: 'Großes Netzwerk',
-    description: 'Zugang zu passiven Kandidaten und versteckten Talenten'
+    title: 'Kommunikation auf Augenhöhe',
+    description: 'Kandidaten merken: Hier sitzt kein HR-Generalist, sondern jemand, der ihre Welt kennt. Das schafft Vertrauen. Das überzeugt.'
   },
   {
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>',
-    title: 'Vertraulichkeit',
-    description: 'Diskrete Abwicklung und Schutz Ihrer Unternehmensdaten'
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>',
+    title: 'Schnelle, moderne Prozesse',
+    description: 'Datengetrieben, automatisiert wo sinnvoll – menschlich wo nötig. Softwaregestützte Prozesse für maximale Effizienz.'
+  },
+  {
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+    title: 'Nur relevante Kandidaten',
+    description: 'Sie bekommen keine 50 Profile zum Durchforsten. Sie bekommen 3-5 Kandidaten, die wirklich passen. Vorqualifiziert durch unser Tech-Team.'
   }
 ]
 
@@ -950,7 +940,7 @@ const drawMatrix = () => {
 
 onMounted(() => {
   // Typing effect
-  const fullText = 'Die besten IT-Talente'
+  const fullText = 'Top-Talente finden'
   let currentIndex = 0
   const typingInterval = setInterval(() => {
     if (currentIndex <= fullText.length) {
@@ -963,9 +953,9 @@ onMounted(() => {
 
   // Animate stats
   setTimeout(() => {
-    animateCounter(150, 0, 'companies', 2)
-    animateCounter(500, 0, 'placements', 8)
-    animateCounter(45, 0, 'days', 1)
+    animateCounter(150, 0, 'candidates', 2)
+    animateCounter(12, 0, 'hours', 1)
+    animateCounter(100, 0, 'software', 2)
   }, 500)
 
   // Start matrix animation

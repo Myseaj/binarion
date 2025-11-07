@@ -47,15 +47,15 @@
           </div>
 
           <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-            Ihre Karriere im <br/>
+            Der Job, der zu Ihnen<br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3dd2cc] to-[#66dcd7] animate-gradient">
-              IT-Bereich startet hier
+              wirklich passt
             </span>
           </h1>
 
           <p class="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Wir verbinden <span class="text-[#3dd2cc] font-semibold">Top-IT-Talente</span> mit den besten Unternehmen. 
-            Ihre Zukunft beginnt mit dem perfekten Match.
+            Endlich ein Recruiter, <span class="text-[#3dd2cc] font-semibold">der Ihren Stack kennt.</span> 
+            Kein Buzzword-Bingo. Keine generischen Stellenbeschreibungen. Nur Jobs, die passen.
           </p>
 
           <!-- CTA Buttons -->
@@ -122,14 +122,14 @@
             <span class="text-[#3dd2cc] font-mono text-sm tracking-wider animate-pulse">// YOUR_BENEFITS</span>
           </div>
           <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Warum mit uns?
+            Was uns unterscheidet
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Wir bieten mehr als nur Jobvermittlung – wir sind Ihr Partner für die perfekte Karriere
+            Wir sind keine klassischen Recruiter. Wir sind ein Tech-Unternehmen mit eigenem Entwicklerteam.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div v-for="(benefit, index) in benefits" :key="index"
                class="group relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 backdrop-blur-sm p-8 rounded-2xl border border-[#3dd2cc]/30 hover:border-[#3dd2cc] transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden">
             
@@ -172,10 +172,10 @@
             <span class="text-[#3dd2cc] font-mono text-sm tracking-wider animate-pulse">// PROCESS_FLOW</span>
           </div>
           <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-            So einfach geht's
+            So läuft's ab
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            In nur 4 Schritten zu Ihrem Traumjob in der IT-Branche
+            Einfach, transparent, schnell – in 4 Schritten zum neuen Job
           </p>
         </div>
 
@@ -312,10 +312,11 @@
 
           <div class="relative z-10 text-center">
             <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6 group-hover:text-[#3dd2cc] transition-colors duration-300">
-              Bereit für den nächsten Karriereschritt?
+              Bereit für den Wechsel?
             </h2>
             <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Entdecken Sie jetzt unsere aktuellen <span class="text-[#3dd2cc] font-semibold">IT-Positionen</span> und finden Sie den Job, der perfekt zu Ihnen passt!
+              Schauen Sie sich unsere aktuellen <span class="text-[#3dd2cc] font-semibold">IT-Positionen</span> an – 
+              oder sprechen Sie direkt mit uns über Ihre Wünsche.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -364,65 +365,55 @@ useHead({
 
 // Stats Data
 const stats = [
-  { value: '500+', label: 'Vermittelte IT-Experten' },
-  { value: '95%', label: 'Erfolgsquote' },
-  { value: '150+', label: 'Partner-Unternehmen' }
+  { value: '150+', label: 'Aktive Kandidaten im Pool' },
+  { value: '<12h', label: 'Reaktionszeit' },
+  { value: '100%', label: 'Softwaregestützt' }
 ]
 
 // Benefits Data
 const benefits = [
   {
-    title: 'Persönliche Beratung',
-    description: 'Individuelle Karriereberatung durch erfahrene IT-Recruiter, die Ihre Stärken und Ziele kennen.',
+    title: 'Technisches Verständnis',
+    description: 'Wir verstehen den Unterschied zwischen React und Vue, zwischen Junior und Senior. Keine Recruiter, die "Java" und "JavaScript" verwechseln.',
+    icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>'
+  },
+  {
+    title: 'Gespräche auf Augenhöhe',
+    description: 'Unser Team besteht aus Entwicklern. Wir sprechen Ihre Sprache – kein HR-Jargon, echte Tech-Gespräche.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>'
   },
   {
-    title: 'Exklusive Positionen',
-    description: 'Zugang zu Top-Jobs, die nicht öffentlich ausgeschrieben sind – direkt von unseren Partner-Unternehmen.',
-    icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>'
-  },
-  {
-    title: 'Schneller Prozess',
-    description: 'Effiziente Vermittlung ohne lange Wartezeiten. Von der ersten Kontaktaufnahme bis zum Vertragsangebot.',
+    title: 'Schnell & transparent',
+    description: 'Softwaregestützte Prozesse, <12h Reaktionszeit, volle Transparenz. Sie wissen immer, wo Sie stehen.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>'
   },
   {
     title: 'Kostenlos für Sie',
-    description: 'Unsere Dienstleistungen sind für Kandidaten komplett kostenfrei – ohne versteckte Gebühren.',
+    description: 'Unsere Dienstleistungen sind für Kandidaten komplett kostenfrei – keine versteckten Gebühren, kein Kleingedrucktes.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
-  },
-  {
-    title: 'Vertraulichkeit',
-    description: 'Absolute Diskretion bei der Jobsuche – Ihre Daten und Bewerbung bleiben vertraulich.',
-    icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>'
-  },
-  {
-    title: 'Langfristige Betreuung',
-    description: 'Auch nach erfolgreicher Vermittlung bleiben wir Ihr Ansprechpartner für Ihre Karriere.',
-    icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>'
   }
 ]
 
 // Process Steps
 const processSteps = [
   {
-    title: 'Profil erstellen',
-    description: 'Teilen Sie uns Ihre Qualifikationen, Erfahrungen und Karriereziele mit.',
+    title: 'Profil & Präferenzen',
+    description: 'Sie sagen uns, was Sie können und was Sie suchen. Stack, Gehalt, Remote-Anteil – alles auf den Tisch.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>'
   },
   {
-    title: 'Matching',
-    description: 'Wir finden die passenden Positionen, die zu Ihren Skills und Wünschen passen.',
+    title: 'Smart Matching',
+    description: 'Unsere Software + unser Tech-Team finden die Positionen, die wirklich zu Ihnen passen. Keine Massenanfragen.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>'
   },
   {
-    title: 'Bewerbung',
-    description: 'Wir bereiten Ihre Unterlagen optimal auf und stellen Sie bei Unternehmen vor.',
+    title: 'Vorstellung',
+    description: 'Wir bereiten Sie vor, stellen Sie beim Unternehmen vor und koordinieren die Gespräche. Sie konzentrieren sich aufs Kennenlernen.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>'
   },
   {
-    title: 'Job Start',
-    description: 'Nach erfolgreicher Vermittlung begleiten wir Sie beim Onboarding.',
+    title: 'Ihr neuer Job',
+    description: 'Vertragsverhandlung, Onboarding-Support – wir bleiben dran, bis Sie erfolgreich gestartet sind.',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>'
   }
 ]
@@ -431,46 +422,46 @@ const processSteps = [
 const services = [
   {
     title: 'Karriereberatung',
-    description: 'Professionelle Unterstützung für Ihre IT-Karriere',
+    description: 'Technische Beratung von Entwicklern für Entwickler',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>',
     features: [
-      'Individuelle Stärken-Analyse',
-      'Karriereplanung & Zielsetzung',
-      'CV & Portfolio Optimierung',
-      'Interview-Vorbereitung'
+      'Stack-Analyse & Skill-Bewertung',
+      'Karriereplanung auf technischer Ebene',
+      'Portfolio & GitHub Review',
+      'Interview-Prep mit Tech-Fokus'
     ]
   },
   {
-    title: 'Jobvermittlung',
-    description: 'Direkte Vermittlung zu Top-Unternehmen',
+    title: 'Job-Matching',
+    description: 'Nur Positionen, die wirklich passen',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
     features: [
-      'Zugang zu exklusiven Positionen',
-      'Direkte Kontakte zu Entscheidern',
-      'Schneller Bewerbungsprozess',
-      'Gehaltsverhandlungen'
+      'Softwaregestütztes Matching',
+      'Direkte Kontakte zu Tech-Leads',
+      'Keine Spam-Anfragen',
+      'Transparente Gehaltsspannen'
     ]
   },
   {
-    title: 'Vertragsberatung',
-    description: 'Unterstützung bei Vertragsverhandlungen',
+    title: 'Prozessbegleitung',
+    description: 'Von der ersten Anfrage bis zum Vertragsstart',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>',
     features: [
-      'Gehalts-Benchmarking',
-      'Benefits-Analyse',
-      'Vertragscheck',
-      'Verhandlungs-Support'
+      'Interviewkoordination',
+      'Feedback nach jedem Schritt',
+      'Vertragscheck & Gehaltsverhandlung',
+      'Reaktionszeit <12h'
     ]
   },
   {
-    title: 'Onboarding-Support',
-    description: 'Begleitung in den ersten Wochen',
+    title: 'Langfristige Partnerschaft',
+    description: 'Auch nach dem Job-Start für Sie da',
     icon: '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>',
     features: [
-      'Einarbeitungs-Feedback',
-      'Ansprechpartner bei Fragen',
-      'Langfristige Betreuung',
-      'Karriere-Follow-up'
+      'Onboarding-Check-ins',
+      'Karriere-Follow-up',
+      'Netzwerk-Zugang',
+      'Ihr Ansprechpartner bleibt derselbe'
     ]
   }
 ]
