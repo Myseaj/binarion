@@ -623,27 +623,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Footer Preview -->
-    <footer class="relative z-10 py-12 px-4 bg-[#07121a] border-t border-[#3dd2cc]/20">
-      <div class="container mx-auto max-w-7xl">
-        <div class="text-center">
-          <div class="flex items-center justify-center gap-3 mb-6">
-            <div class="w-10 h-10 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center">
-              <span class="text-2xl font-bold text-[#07121a]">1</span>
-            </div>
-            <span class="text-2xl font-bold text-[#3dd2cc]">Binarion</span>
-          </div>
-          <p class="text-gray-400 mb-6">Die 1 im digitalen Recruiting</p>
-          <div class="flex justify-center gap-6 mb-8">
-            <a href="#" class="text-gray-400 hover:text-[#3dd2cc] transition-colors">LinkedIn</a>
-            <a href="#" class="text-gray-400 hover:text-[#3dd2cc] transition-colors">Xing</a>
-            <a href="#" class="text-gray-400 hover:text-[#3dd2cc] transition-colors">Instagram</a>
-          </div>
-          <p class="text-sm text-gray-500">© 2025 Binarion. Alle Rechte vorbehalten.</p>
-        </div>
-      </div>
-    </footer>
   </div>
 </template>
 
