@@ -57,7 +57,7 @@
 
           <!-- CTA Buttons with Advanced Effects -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <button class="group relative px-8 py-4 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg text-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/50 hover:shadow-2xl hover:shadow-[#3dd2cc]/80 transition-all duration-300 hover:scale-105">
+            <a href="https://calendly.com/m-hillebrand/15min" target="_blank" rel="noopener noreferrer" class="group relative px-8 py-4 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg text-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/50 hover:shadow-2xl hover:shadow-[#3dd2cc]/80 transition-all duration-300 hover:scale-105">
               <!-- Animated Border -->
               <div class="absolute inset-0 opacity-0 group-hover:opacity-100">
                 <div class="absolute inset-0 border-2 border-white rounded-lg animate-border-spin"></div>
@@ -79,8 +79,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                 </svg>
               </span>
-            </button>
-            <button class="group relative px-8 py-4 bg-transparent border-2 border-[#3dd2cc] text-[#3dd2cc] font-bold rounded-lg text-lg overflow-hidden transition-all duration-300 hover:scale-105">
+            </a>
+            <NuxtLink to="/contact" class="group relative px-8 py-4 bg-transparent border-2 border-[#3dd2cc] text-[#3dd2cc] font-bold rounded-lg text-lg overflow-hidden transition-all duration-300 hover:scale-105">
               <!-- Scanning Lines -->
               <div class="absolute inset-0 overflow-hidden">
                 <div class="scan-lines"></div>
@@ -96,7 +96,7 @@
                 </svg>
                 Unverbindliche Anfrage
               </span>
-            </button>
+            </NuxtLink>
           </div>
 
           <!-- Trust Indicators with 3D Hover Effect -->
@@ -691,12 +691,12 @@
               Kostenloses Erstgespräch – Sie entscheiden dann.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button class="px-10 py-4 bg-[#07121a] text-[#3dd2cc] font-bold rounded-lg text-lg hover:bg-[#122d42] transition-all duration-300 hover:scale-105 shadow-xl">
+              <a href="https://calendly.com/m-hillebrand/15min" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-[#07121a] text-[#3dd2cc] font-bold rounded-lg text-lg hover:bg-[#122d42] transition-all duration-300 hover:scale-105 shadow-xl">
                 Erstgespräch vereinbaren
-              </button>
-              <button class="px-10 py-4 bg-transparent border-2 border-[#07121a] text-[#07121a] font-bold rounded-lg text-lg hover:bg-[#07121a] hover:text-[#3dd2cc] transition-all duration-300 hover:scale-105">
+              </a>
+              <NuxtLink to="/about" class="px-10 py-4 bg-transparent border-2 border-[#07121a] text-[#07121a] font-bold rounded-lg text-lg hover:bg-[#07121a] hover:text-[#3dd2cc] transition-all duration-300 hover:scale-105">
                 Mehr über uns
-              </button>
+              </NuxtLink>
             </div>
           </div>
         </div>

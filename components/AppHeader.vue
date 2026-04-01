@@ -10,7 +10,7 @@
     <!-- Binary Rain in Header -->
     <div class="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
       <div v-for="i in 20" :key="i" class="header-binary" :style="getHeaderBinaryStyle(i)">
-        {{ Math.random() > 0.5 ? '1' : '0' }}
+        {{ getHeaderBinaryChar(i) }}
       </div>
     </div>
 
@@ -206,7 +206,7 @@
 
         <!-- CTA Button Desktop with Advanced Effects -->
         <div class="hidden lg:flex items-center gap-4">
-          <button class="cta-button group relative px-6 py-2.5 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/30 hover:shadow-2xl hover:shadow-[#3dd2cc]/60 transition-all duration-500 hover:scale-105">
+          <NuxtLink to="/contact" class="cta-button group relative px-6 py-2.5 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/30 hover:shadow-2xl hover:shadow-[#3dd2cc]/60 transition-all duration-500 hover:scale-105">
             <!-- Circuit Lines -->
             <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -235,7 +235,7 @@
                 {{ binaryBg }}
               </div>
             </div>
-          </button>
+          </NuxtLink>
         </div>
 
         <!-- Mobile Menu Button with Animation -->
@@ -490,7 +490,7 @@
           </NuxtLink>
 
           <div class="pt-4">
-            <button class="group relative w-full px-6 py-3 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg shadow-lg shadow-[#3dd2cc]/30 hover:shadow-2xl hover:shadow-[#3dd2cc]/60 transition-all duration-500 overflow-hidden">
+            <NuxtLink to="/contact" @click="closeMobileMenu" class="group relative w-full block text-center px-6 py-3 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg shadow-lg shadow-[#3dd2cc]/30 hover:shadow-2xl hover:shadow-[#3dd2cc]/60 transition-all duration-500 overflow-hidden">
               <!-- Animated Background -->
               <div class="absolute inset-0 bg-gradient-to-r from-[#29b3ad] to-[#3dd2cc] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
@@ -503,7 +503,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                 </svg>
               </span>
-            </button>
+            </NuxtLink>
           </div>
         </div>
         
@@ -529,7 +529,13 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 20
 }
 
-// Generate Binary Background
+// Deterministic pseudo-random to avoid SSR hydration mismatch
+const seededRandom = (seed) => {
+  const x = Math.sin(seed * 9301 + 49297) * 49297
+  return x - Math.floor(x)
+}
+
+// Generate Binary Background (client-only, no hydration issue)
 const generateBinaryBg = () => {
   let binary = ''
   for (let i = 0; i < 100; i++) {
@@ -542,10 +548,14 @@ const generateBinaryBg = () => {
 const getHeaderBinaryStyle = (i) => {
   return {
     left: `${i * 5}%`,
-    top: `${Math.random() * 100}%`,
-    animationDelay: `${Math.random() * 3}s`,
-    animationDuration: `${5 + Math.random() * 3}s`
+    top: `${seededRandom(i * 7 + 1) * 100}%`,
+    animationDelay: `${seededRandom(i * 7 + 2) * 3}s`,
+    animationDuration: `${5 + seededRandom(i * 7 + 3) * 3}s`
   }
+}
+
+const getHeaderBinaryChar = (i) => {
+  return seededRandom(i * 11) > 0.5 ? '1' : '0'
 }
 
 // Logo Particle Style
@@ -562,10 +572,10 @@ const getLogoParticleStyle = (n) => {
 // Mobile Menu Particle Style
 const getMobileParticleStyle = (i) => {
   return {
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    animationDelay: `${Math.random() * 2}s`,
-    animationDuration: `${10 + Math.random() * 5}s`
+    left: `${seededRandom(i * 7 + 100) * 100}%`,
+    top: `${seededRandom(i * 7 + 101) * 100}%`,
+    animationDelay: `${seededRandom(i * 7 + 102) * 2}s`,
+    animationDuration: `${10 + seededRandom(i * 7 + 103) * 5}s`
   }
 }
 

@@ -10,7 +10,7 @@
       <!-- Binary Rain (Subtle) -->
       <div class="absolute inset-0 overflow-hidden opacity-5">
         <div v-for="i in 10" :key="i" class="footer-binary" :style="getFooterBinaryStyle(i)">
-          {{ Math.random() > 0.5 ? '1' : '0' }}
+          {{ getFooterBinaryChar(i) }}
         </div>
       </div>
 
@@ -38,24 +38,6 @@
           <p class="text-gray-400 leading-relaxed">
             Die 1 im digitalen Recruiting. Wir verbinden Tech-Talente mit Unternehmen, die den Code der Zukunft schreiben.
           </p>
-          <!-- Social Links -->
-          <div class="flex gap-4">
-            <a href="#" class="social-btn group">
-              <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
-              <span class="relative z-10">LinkedIn</span>
-              <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-300"></div>
-            </a>
-            <a href="#" class="social-btn group">
-              <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
-              <span class="relative z-10">Xing</span>
-              <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-300"></div>
-            </a>
-            <a href="#" class="social-btn group">
-              <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
-              <span class="relative z-10">Instagram</span>
-              <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3dd2cc] group-hover:w-full transition-all duration-300"></div>
-            </a>
-          </div>
         </div>
 
         <!-- Quick Links -->
@@ -75,7 +57,7 @@
         </div>
 
         <!-- Services -->
-        <div>
+        <div v-if = "false">
           <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
             <span class="w-1 h-4 bg-[#3dd2cc] rounded-full"></span>
             Services
@@ -88,39 +70,6 @@
               </a>
             </li>
           </ul>
-        </div>
-
-        <!-- Newsletter / Terminal -->
-        <div>
-          <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-            <span class="w-1 h-4 bg-[#3dd2cc] rounded-full"></span>
-            Stay Updated
-          </h4>
-          <div class="bg-[#0a1924] border border-[#3dd2cc]/30 rounded-lg p-4 font-mono text-sm relative overflow-hidden group">
-            <!-- Terminal Header -->
-            <div class="flex gap-1.5 mb-3 opacity-50">
-              <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-            </div>
-            <!-- Input Area -->
-            <div class="space-y-2">
-              <div class="text-gray-400">
-                <span class="text-[#3dd2cc]">user@binarion:~$</span> subscribe --email
-              </div>
-              <div class="relative">
-                <input 
-                  type="email" 
-                  placeholder="enter_email..." 
-                  class="w-full bg-transparent border-none outline-none text-white placeholder-gray-600 focus:ring-0 p-0"
-                >
-                <div class="absolute bottom-0 left-0 w-full h-px bg-[#3dd2cc]/30 group-hover:bg-[#3dd2cc] transition-colors duration-300"></div>
-              </div>
-              <button class="w-full mt-2 py-2 bg-[#3dd2cc]/10 hover:bg-[#3dd2cc] text-[#3dd2cc] hover:text-[#07121a] border border-[#3dd2cc] rounded transition-all duration-300 font-bold text-xs uppercase tracking-wider">
-                Execute
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -156,7 +105,8 @@ const quickLinks = [
   { text: 'Für Unternehmen', to: '/partner' },
   { text: 'Für Kandidaten', to: '/kandidaten' },
   { text: 'Jobs', to: '/jobs' },
-  { text: 'Über uns', to: '/about' }
+  { text: 'Über uns', to: '/about' },
+  { text: 'Kontakt', to: '/contact' }
 ]
 
 const services = [
@@ -166,14 +116,24 @@ const services = [
   'Tech-Consulting'
 ]
 
+// Deterministic pseudo-random to avoid SSR hydration mismatch
+const seededRandom = (seed) => {
+  const x = Math.sin(seed * 9301 + 49297) * 49297
+  return x - Math.floor(x)
+}
+
 const getFooterBinaryStyle = (i) => {
   return {
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    animationDelay: `${Math.random() * 5}s`,
-    animationDuration: `${10 + Math.random() * 10}s`,
-    opacity: 0.1 + Math.random() * 0.2
+    left: `${seededRandom(i * 7 + 1) * 100}%`,
+    top: `${seededRandom(i * 7 + 2) * 100}%`,
+    animationDelay: `${seededRandom(i * 7 + 3) * 5}s`,
+    animationDuration: `${10 + seededRandom(i * 7 + 4) * 10}s`,
+    opacity: 0.1 + seededRandom(i * 7 + 5) * 0.2
   }
+}
+
+const getFooterBinaryChar = (i) => {
+  return seededRandom(i * 13) > 0.5 ? '1' : '0'
 }
 </script>
 

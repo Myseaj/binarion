@@ -1,83 +1,63 @@
 <template>
   <div class="min-h-screen bg-[#07121a] text-white relative overflow-hidden">
     <!-- Matrix Background -->
-    <canvas ref="matrixCanvas" class="fixed inset-0 w-full h-full opacity-20 pointer-events-none"></canvas>
+    <canvas ref="matrixCanvas" class="fixed inset-0 w-full h-full opacity-10 pointer-events-none"></canvas>
+
+    <!-- Subtle Grid Background -->
+    <div class="fixed inset-0 z-0 opacity-[0.03] pointer-events-none">
+      <div class="grid-bg"></div>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <!-- Animated Background Elements -->
+      <!-- Background Elements - reduced clutter -->
       <div class="absolute inset-0">
-        <!-- Gradient Orbs -->
-        <div class="absolute top-20 left-10 w-96 h-96 bg-[#3dd2cc] rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#3dd2cc] rounded-full blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#3dd2cc] rounded-full blur-[120px] opacity-[0.08]"></div>
+        <div class="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-[#3dd2cc] rounded-full blur-[100px] opacity-[0.06]"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#3dd2cc] rounded-full blur-[150px] opacity-[0.04]"></div>
         
-        <!-- Floating Particles -->
-        <div v-for="n in 25" :key="`particle-${n}`" 
-             class="particle absolute w-2 h-2 bg-[#3dd2cc] rounded-full opacity-50"
+        <!-- Subtle floating dots -->
+        <div v-for="n in 12" :key="`particle-${n}`" 
+             class="particle absolute w-1 h-1 bg-[#3dd2cc] rounded-full"
              :style="getParticleStyle(n)"></div>
-        
-        <!-- Scan Lines -->
-        <div class="scan-line"></div>
-        <div class="scan-line-horizontal"></div>
-        
-        <!-- Orbital Rings -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none">
-          <div class="orbital-ring"></div>
-          <div class="orbital-ring" style="animation-delay: -3s; animation-duration: 15s;"></div>
-        </div>
-
-        <!-- Data Streams -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-          <div v-for="n in 6" :key="`stream-${n}`" 
-               class="data-stream"
-               :style="{ left: `${n * 15}%`, animationDelay: `${n * 0.7}s`, animationDuration: `${4 + n * 0.4}s` }"></div>
-        </div>
       </div>
 
       <!-- Hero Content -->
       <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-5xl mx-auto text-center">
-          <!-- Animated Title -->
-          <div class="mb-8 inline-block">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="h-px flex-1 bg-gradient-to-r from-transparent to-[#3dd2cc]"></div>
-              <span class="text-[#3dd2cc] font-mono text-sm tracking-wider animate-pulse">// KARRIERE_BOOST.EXE</span>
-              <div class="h-px flex-1 bg-gradient-to-l from-transparent to-[#3dd2cc]"></div>
-            </div>
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Badge -->
+          <div class="mb-10 inline-flex items-center gap-2 px-5 py-2 bg-[#3dd2cc]/[0.08] border border-[#3dd2cc]/20 rounded-full backdrop-blur-sm">
+            <div class="w-2 h-2 bg-[#3dd2cc] rounded-full animate-pulse"></div>
+            <span class="text-[#3dd2cc] text-sm font-medium tracking-wide">Für IT-Fachkräfte</span>
           </div>
 
-          <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 class="text-5xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
             Der Job, der zu Ihnen<br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3dd2cc] to-[#66dcd7] animate-gradient">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3dd2cc] to-[#66dcd7]">
               wirklich passt
             </span>
           </h1>
 
-          <p class="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Endlich ein Recruiter, <span class="text-[#3dd2cc] font-semibold">der Ihren Stack kennt.</span> 
+          <p class="text-lg lg:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Endlich ein Recruiter, <span class="text-[#3dd2cc] font-medium">der Ihren Stack kennt.</span> 
             Kein Buzzword-Bingo. Keine generischen Stellenbeschreibungen. Nur Jobs, die passen.
           </p>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <NuxtLink to="/jobs" class="group/cta relative px-10 py-5 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-xl text-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/50 hover:shadow-2xl hover:shadow-[#3dd2cc]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-              <div class="absolute inset-0 -translate-x-full group-hover/cta:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
-              <div class="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500">
-                <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full animate-ping"></div>
-                <div class="absolute top-3/4 right-1/4 w-1 h-1 bg-white rounded-full animate-ping" style="animation-delay: 0.2s;"></div>
-              </div>
-              <span class="relative z-10 flex items-center gap-3 justify-center">
-                <svg class="w-6 h-6 group-hover/cta:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+            <NuxtLink to="/jobs" class="group relative px-8 py-4 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg text-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/30 hover:shadow-xl hover:shadow-[#3dd2cc]/50 transition-all duration-300 hover:scale-105">
+              <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12"></div>
+              <span class="relative z-10 flex items-center gap-2 justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
                 Jobs entdecken
               </span>
             </NuxtLink>
 
-            <a href="#process" class="group/cta2 relative px-10 py-5 bg-[#122d42]/50 border-2 border-[#3dd2cc]/30 text-white font-bold rounded-xl text-lg overflow-hidden hover:bg-[#3dd2cc]/10 hover:border-[#3dd2cc] transition-all duration-300 hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#3dd2cc]/10 to-transparent opacity-0 group-hover/cta2:opacity-100 group-hover/cta2:animate-pulse"></div>
-              <span class="relative z-10 flex items-center gap-3 justify-center">
-                <svg class="w-6 h-6 group-hover/cta2:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="#process" class="group px-8 py-4 bg-white/[0.04] border border-white/10 text-white font-semibold rounded-lg text-lg hover:bg-white/[0.08] hover:border-[#3dd2cc]/40 transition-all duration-300">
+              <span class="flex items-center gap-2 justify-center">
+                <svg class="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
                 So funktioniert's
@@ -86,145 +66,110 @@
           </div>
 
           <!-- Stats -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div class="grid grid-cols-3 gap-4 lg:gap-8 max-w-3xl mx-auto">
             <div v-for="(stat, index) in stats" :key="index" 
-                 class="group relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 backdrop-blur-sm p-6 rounded-2xl border border-[#3dd2cc]/30 hover:border-[#3dd2cc] transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-                 :style="{ animationDelay: `${index * 0.1}s` }">
-              <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div class="absolute top-0 right-0 w-20 h-20 bg-[#3dd2cc]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div class="relative z-10">
-                <div class="text-4xl lg:text-5xl font-bold text-[#3dd2cc] mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {{ stat.value }}
-                </div>
-                <div class="text-gray-300 text-sm lg:text-base">{{ stat.label }}</div>
+                 class="relative p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.06] hover:border-[#3dd2cc]/30 transition-all duration-500">
+              <div class="text-3xl lg:text-4xl font-bold text-[#3dd2cc] mb-1">
+                {{ stat.value }}
               </div>
-              
-              <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#3dd2cc] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="text-gray-500 text-xs lg:text-sm">{{ stat.label }}</div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div class="w-6 h-10 border-2 border-[#3dd2cc]/50 rounded-full p-1">
-          <div class="w-1 h-3 bg-[#3dd2cc] rounded-full mx-auto animate-pulse"></div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+        <span class="text-xs text-gray-500 tracking-widest uppercase">Scroll</span>
+        <div class="w-5 h-8 border border-gray-600 rounded-full p-1">
+          <div class="w-1 h-2 bg-[#3dd2cc] rounded-full mx-auto animate-bounce"></div>
         </div>
       </div>
     </section>
 
+    <!-- Divider -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-[#3dd2cc]/20 to-transparent"></div>
+
     <!-- Vorteile Section -->
-    <section id="vorteile" class="py-20 px-4 relative">
-      <div class="container mx-auto max-w-7xl">
+    <section id="vorteile" class="py-24 lg:py-32 px-4 relative">
+      <div class="container mx-auto max-w-6xl">
         <div class="text-center mb-16">
-          <div class="inline-block mb-4">
-            <span class="text-[#3dd2cc] font-mono text-sm tracking-wider animate-pulse">// YOUR_BENEFITS</span>
-          </div>
-          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <span class="inline-block text-[#3dd2cc] text-sm font-semibold tracking-widest uppercase mb-4">Ihre Vorteile</span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-5">
             Was uns unterscheidet
           </h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Wir sind keine klassischen Recruiter. Wir sind ein Tech-Unternehmen mit eigenem Entwicklerteam.
+          <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+            Wir sind keine klassischen Recruiter – wir sind ein Tech-Unternehmen mit eigenem Entwicklerteam.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div v-for="(benefit, index) in benefits" :key="index"
-               class="group relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 backdrop-blur-sm p-8 rounded-2xl border border-[#3dd2cc]/30 hover:border-[#3dd2cc] transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden">
+               class="group relative bg-white/[0.03] backdrop-blur-sm p-8 rounded-2xl border border-white/[0.06] hover:border-[#3dd2cc]/30 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden">
             
-            <!-- Background Effects -->
-            <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-              <div class="hexagon-pattern"></div>
-            </div>
-            <div class="absolute -top-20 -right-20 w-40 h-40 bg-[#3dd2cc] rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-500"></div>
-            
-            <!-- Corner Accents -->
-            <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#3dd2cc]/0 group-hover:border-[#3dd2cc]/50 rounded-tr-2xl transition-all duration-500"></div>
-            <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#3dd2cc]/0 group-hover:border-[#3dd2cc]/50 rounded-bl-2xl transition-all duration-500"></div>
+            <!-- Subtle glow on hover -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#3dd2cc] rounded-full blur-[60px] opacity-0 group-hover:opacity-[0.08] transition-all duration-700"></div>
 
             <div class="relative z-10">
               <!-- Icon -->
-              <div class="mb-6 inline-block p-4 bg-[#3dd2cc]/10 rounded-xl border border-[#3dd2cc]/30 group-hover:bg-[#3dd2cc]/20 group-hover:border-[#3dd2cc] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                <div v-html="benefit.icon" class="w-8 h-8 text-[#3dd2cc]"></div>
+              <div class="mb-5 inline-flex items-center justify-center w-12 h-12 bg-[#3dd2cc]/10 rounded-xl border border-[#3dd2cc]/20 group-hover:bg-[#3dd2cc]/15 group-hover:border-[#3dd2cc]/40 transition-all duration-500">
+                <div v-html="benefit.icon" class="w-6 h-6 text-[#3dd2cc]"></div>
               </div>
 
-              <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-[#3dd2cc] transition-colors duration-300">
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">
                 {{ benefit.title }}
               </h3>
-              <p class="text-gray-300 leading-relaxed">
+              <p class="text-gray-400 leading-relaxed text-[15px]">
                 {{ benefit.description }}
               </p>
             </div>
-
-            <!-- Shine Effect -->
-            <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-[#3dd2cc]/10 to-transparent"></div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Divider -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-[#3dd2cc]/20 to-transparent"></div>
+
     <!-- Process Section -->
-    <section id="process" class="py-20 px-4 relative">
-      <div class="container mx-auto max-w-7xl">
+    <section id="process" class="py-24 lg:py-32 px-4 relative">
+      <div class="container mx-auto max-w-6xl">
         <div class="text-center mb-16">
-          <div class="inline-block mb-4">
-            <span class="text-[#3dd2cc] font-mono text-sm tracking-wider animate-pulse">// PROCESS_FLOW</span>
-          </div>
-          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-            So läuft's ab
+          <span class="inline-block text-[#3dd2cc] text-sm font-semibold tracking-widest uppercase mb-4">Ablauf</span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-5">
+            In 4 Schritten zum neuen Job
           </h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Einfach, transparent, schnell – in 4 Schritten zum neuen Job
+          <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+            Einfach, transparent und schnell
           </p>
         </div>
 
         <div class="relative max-w-5xl mx-auto">
-          <!-- Connection Line -->
-          <div class="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-[#3dd2cc]/20 via-[#3dd2cc]/50 to-[#3dd2cc]/20"></div>
+          <!-- Connection Line (Desktop) -->
+          <div class="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#3dd2cc]/10 via-[#3dd2cc]/30 to-[#3dd2cc]/10"></div>
+          
+          <!-- Connection Line (Mobile) -->
+          <div class="lg:hidden absolute top-0 bottom-0 left-8 w-px bg-gradient-to-b from-[#3dd2cc]/20 via-[#3dd2cc]/10 to-[#3dd2cc]/20"></div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-5">
             <div v-for="(step, index) in processSteps" :key="index"
-                 class="group relative pt-8">
+                 class="group relative lg:text-center">
               
               <!-- Step Number -->
-              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-2xl flex items-center justify-center text-2xl font-bold text-[#07121a] shadow-lg shadow-[#3dd2cc]/50 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 z-20">
-                {{ index + 1 }}
+              <div class="flex lg:justify-center mb-5">
+                <div class="relative z-20 w-14 h-14 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-xl flex items-center justify-center text-xl font-bold text-[#07121a] shadow-lg shadow-[#3dd2cc]/20 group-hover:shadow-[#3dd2cc]/40 group-hover:scale-110 transition-all duration-500">
+                  {{ index + 1 }}
+                </div>
               </div>
               
-              <!-- Step Card -->
-              <div class="relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 backdrop-blur-sm p-8 pt-12 rounded-2xl border border-[#3dd2cc]/30 hover:border-[#3dd2cc] transition-all duration-500 hover:scale-105 hover:-translate-y-4 perspective-card overflow-hidden h-full flex flex-col">
-                
-                <!-- Background Effects -->
-                <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                  <div class="hexagon-pattern"></div>
-                </div>
-
-                <div class="relative z-10 flex-1 flex flex-col">
-                  <!-- Icon -->
-                  <div class="mb-6 flex justify-center">
-                    <div class="p-4 bg-[#3dd2cc]/10 rounded-xl border border-[#3dd2cc]/30 group-hover:bg-[#3dd2cc]/20 group-hover:border-[#3dd2cc] transition-all duration-500">
-                      <div v-html="step.icon" class="w-10 h-10 text-[#3dd2cc]"></div>
-                    </div>
-                  </div>
-
-                  <h3 class="text-xl font-bold text-white mb-4 text-center group-hover:text-[#3dd2cc] transition-colors duration-300">
-                    {{ step.title }}
-                  </h3>
-                  <p class="text-gray-300 text-center leading-relaxed text-sm">
-                    {{ step.description }}
-                  </p>
-                </div>
-
-                <!-- Glow on Hover -->
-                <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              </div>
-
-              <!-- Arrow (Desktop) -->
-              <div v-if="index < processSteps.length - 1" class="hidden lg:block absolute top-24 -right-4 z-30">
-                <svg class="w-8 h-8 text-[#3dd2cc] animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
+              <!-- Step Content -->
+              <div class="pl-16 lg:pl-0">
+                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#3dd2cc] transition-colors duration-300">
+                  {{ step.title }}
+                </h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                  {{ step.description }}
+                </p>
               </div>
             </div>
           </div>
@@ -232,113 +177,140 @@
       </div>
     </section>
 
+    <!-- Divider -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-[#3dd2cc]/20 to-transparent"></div>
+
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4 relative">
-      <div class="container mx-auto max-w-7xl">
+    <section id="services" class="py-24 lg:py-32 px-4 relative">
+      <div class="container mx-auto max-w-6xl">
         <div class="text-center mb-16">
-          <div class="inline-block mb-4">
-            <span class="text-[#3dd2cc] font-mono text-sm tracking-wider animate-pulse">// OUR_SERVICES</span>
-          </div>
-          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Unsere Leistungen
+          <span class="inline-block text-[#3dd2cc] text-sm font-semibold tracking-widest uppercase mb-4">Leistungen</span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-5">
+            Rundum-Unterstützung
           </h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Umfassende Unterstützung auf Ihrem Karriereweg
+          <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+            Von der Karriereberatung bis zum Onboarding – alles aus einer Hand
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-5xl mx-auto">
           <div v-for="(service, index) in services" :key="index"
-               class="group relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 backdrop-blur-sm p-10 rounded-3xl border border-[#3dd2cc]/30 hover:border-[#3dd2cc] transition-all duration-500 hover:scale-105 overflow-hidden">
+               class="group relative bg-white/[0.03] backdrop-blur-sm p-8 rounded-2xl border border-white/[0.06] hover:border-[#3dd2cc]/30 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden">
             
-            <!-- Background Effects -->
-            <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-              <div class="hexagon-pattern"></div>
-            </div>
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-[#3dd2cc] rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
+            <!-- Subtle glow -->
+            <div class="absolute -top-32 -right-32 w-64 h-64 bg-[#3dd2cc] rounded-full blur-[80px] opacity-0 group-hover:opacity-[0.06] transition-all duration-700"></div>
 
             <div class="relative z-10">
-              <div class="flex items-start gap-6 mb-6">
-                <div class="p-5 bg-[#3dd2cc]/10 rounded-2xl border border-[#3dd2cc]/30 group-hover:bg-[#3dd2cc]/20 group-hover:border-[#3dd2cc] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
-                  <div v-html="service.icon" class="w-12 h-12 text-[#3dd2cc]"></div>
+              <div class="flex items-start gap-5 mb-5">
+                <div class="flex-shrink-0 w-12 h-12 bg-[#3dd2cc]/10 rounded-xl border border-[#3dd2cc]/20 flex items-center justify-center group-hover:bg-[#3dd2cc]/15 group-hover:border-[#3dd2cc]/40 transition-all duration-500">
+                  <div v-html="service.icon" class="w-6 h-6 text-[#3dd2cc]"></div>
                 </div>
                 <div class="flex-1">
-                  <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-[#3dd2cc] transition-colors duration-300">
+                  <h3 class="text-xl font-bold text-white mb-1 group-hover:text-[#3dd2cc] transition-colors duration-300">
                     {{ service.title }}
                   </h3>
-                  <p class="text-gray-300 leading-relaxed mb-6">
+                  <p class="text-gray-500 text-sm">
                     {{ service.description }}
                   </p>
                 </div>
               </div>
 
               <!-- Features List -->
-              <ul class="space-y-3">
+              <ul class="space-y-2.5 pl-[68px]">
                 <li v-for="(feature, fIndex) in service.features" :key="fIndex"
-                    class="flex items-start gap-3 text-gray-300 group/item hover:text-white transition-colors duration-300">
-                  <div class="mt-1 w-2 h-2 bg-[#3dd2cc] rounded-full flex-shrink-0 group-hover/item:scale-150 group-hover/item:shadow-lg group-hover/item:shadow-[#3dd2cc] transition-all duration-300"></div>
-                  <span class="group-hover/item:translate-x-2 transition-transform duration-300">{{ feature }}</span>
+                    class="flex items-center gap-3 text-gray-400 text-sm">
+                  <svg class="w-4 h-4 text-[#3dd2cc] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>{{ feature }}</span>
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Shine Effect -->
-            <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-[#3dd2cc]/10 to-transparent"></div>
+    <!-- Divider -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-[#3dd2cc]/20 to-transparent"></div>
+
+    <!-- Fachbereiche Section -->
+    <section id="fachbereiche" class="py-24 lg:py-32 px-4 relative">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <span class="inline-block text-[#3dd2cc] text-sm font-semibold tracking-widest uppercase mb-4">Fachbereiche</span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-5">
+            Unsere <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3dd2cc] to-[#66dcd7]">Spezialisierungen</span>
+          </h2>
+          <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+            Finden Sie Ihre Nische – wir sprechen Ihre Sprache
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          <div v-for="(area, index) in specializations" :key="index"
+               class="group relative bg-white/[0.03] backdrop-blur-sm p-6 rounded-2xl border border-white/[0.06] hover:border-[#3dd2cc]/30 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden text-center">
+            
+            <div class="absolute inset-0 bg-gradient-to-b from-[#3dd2cc]/0 to-[#3dd2cc]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+
+            <div class="relative z-10">
+              <!-- Emoji -->
+              <div class="w-14 h-14 mx-auto mb-4 bg-[#3dd2cc]/[0.08] rounded-2xl border border-[#3dd2cc]/15 flex items-center justify-center text-2xl group-hover:bg-[#3dd2cc]/15 group-hover:border-[#3dd2cc]/30 group-hover:scale-110 transition-all duration-500">
+                {{ area.emoji }}
+              </div>
+
+              <h3 class="text-base font-bold text-white mb-2 group-hover:text-[#3dd2cc] transition-colors duration-300">
+                {{ area.title }}
+              </h3>
+              <p class="text-gray-500 text-xs leading-relaxed mb-4">
+                {{ area.shortDesc }}
+              </p>
+
+              <NuxtLink to="/jobs" class="inline-flex items-center gap-1.5 text-[#3dd2cc] text-xs font-semibold hover:underline underline-offset-4 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0">
+                <span>Jobs ansehen</span>
+                <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-4 relative">
-      <div class="container mx-auto max-w-5xl">
-        <div class="relative bg-gradient-to-br from-[#122d42] to-[#1d486a] p-12 lg:p-16 rounded-3xl border border-[#3dd2cc]/30 overflow-hidden group hover:border-[#3dd2cc]/60 transition-all duration-500">
+    <section class="py-24 lg:py-32 px-4 relative">
+      <div class="container mx-auto max-w-4xl">
+        <div class="relative p-12 lg:p-20 rounded-3xl overflow-hidden">
           
-          <!-- Background Effects -->
-          <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-            <div class="network-pattern"></div>
-          </div>
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-[#3dd2cc] rounded-full blur-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-          
-          <!-- Corner Accents -->
-          <div class="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-[#3dd2cc]/50 rounded-tl-3xl"></div>
-          <div class="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-[#3dd2cc]/50 rounded-br-3xl"></div>
-          
-          <!-- Pulse Rings -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 pointer-events-none">
-            <div class="absolute inset-0 rounded-full border-2 border-[#3dd2cc]/20 animate-ping"></div>
-            <div class="absolute inset-0 rounded-full border-2 border-[#3dd2cc]/10 animate-ping" style="animation-delay: 1s; animation-duration: 3s;"></div>
-          </div>
+          <!-- Background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#0f2233] to-[#162f45] border border-[#3dd2cc]/15 rounded-3xl"></div>
+          <div class="absolute -top-32 -right-32 w-64 h-64 bg-[#3dd2cc] rounded-full blur-[100px] opacity-[0.12]"></div>
+          <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-[#3dd2cc] rounded-full blur-[100px] opacity-[0.08]"></div>
 
           <div class="relative z-10 text-center">
-            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6 group-hover:text-[#3dd2cc] transition-colors duration-300">
-              Bereit für den Wechsel?
+            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-5">
+              Bereit für den <span class="text-[#3dd2cc]">Wechsel</span>?
             </h2>
-            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Schauen Sie sich unsere aktuellen <span class="text-[#3dd2cc] font-semibold">IT-Positionen</span> an – 
+            <p class="text-lg text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
+              Schauen Sie sich unsere aktuellen IT-Positionen an – 
               oder sprechen Sie direkt mit uns über Ihre Wünsche.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-              <NuxtLink to="/jobs" class="group/cta relative px-10 py-5 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-xl text-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/50 hover:shadow-2xl hover:shadow-[#3dd2cc]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-                <div class="absolute inset-0 -translate-x-full group-hover/cta:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
-                <div class="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500">
-                  <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full animate-ping"></div>
-                  <div class="absolute top-3/4 right-1/4 w-1 h-1 bg-white rounded-full animate-ping" style="animation-delay: 0.2s;"></div>
-                  <div class="absolute bottom-1/4 left-3/4 w-1 h-1 bg-white rounded-full animate-ping" style="animation-delay: 0.4s;"></div>
-                </div>
-                <span class="relative z-10 flex items-center gap-3 justify-center">
-                  <svg class="w-6 h-6 group-hover/cta:rotate-12 group-hover/cta:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <NuxtLink to="/jobs" class="group relative px-8 py-4 bg-gradient-to-r from-[#3dd2cc] to-[#29b3ad] text-[#07121a] font-bold rounded-lg text-lg overflow-hidden shadow-lg shadow-[#3dd2cc]/30 hover:shadow-xl hover:shadow-[#3dd2cc]/50 transition-all duration-300 hover:scale-105">
+                <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12"></div>
+                <span class="relative z-10 flex items-center gap-2 justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                   </svg>
                   Jobs durchsuchen
                 </span>
               </NuxtLink>
 
-              <NuxtLink to="/partner" class="group/cta2 relative px-10 py-5 bg-[#122d42]/50 border-2 border-[#3dd2cc]/30 text-white font-bold rounded-xl text-lg overflow-hidden hover:bg-[#3dd2cc]/10 hover:border-[#3dd2cc] transition-all duration-300 hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#3dd2cc]/10 to-transparent opacity-0 group-hover/cta2:opacity-100 group-hover/cta2:animate-pulse"></div>
-                <span class="relative z-10 flex items-center gap-3 justify-center">
-                  <svg class="w-6 h-6 group-hover/cta2:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <NuxtLink to="/partner" class="group px-8 py-4 bg-white/[0.04] border border-white/10 text-white font-semibold rounded-lg text-lg hover:bg-white/[0.08] hover:border-[#3dd2cc]/40 transition-all duration-300">
+                <span class="flex items-center gap-2 justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                   </svg>
                   Für Unternehmen
@@ -466,15 +438,65 @@ const services = [
   }
 ]
 
+// Specializations Data
+const specializations = [
+  {
+    title: 'Datenbanken',
+    emoji: '🗄️',
+    shortDesc: 'SQL, NoSQL, Data Engineering – von Normalisierung bis Performance-Tuning.'
+  },
+  {
+    title: 'Software­entwicklung',
+    emoji: '💻',
+    shortDesc: 'Frontend, Backend, Fullstack – alle Sprachen, Frameworks und Paradigmen.'
+  },
+  {
+    title: 'Netzwerk­technik',
+    emoji: '🌐',
+    shortDesc: 'Router, Switches, Protokolle – die Infrastruktur hinter jeder Verbindung.'
+  },
+  {
+    title: 'Sys­admin',
+    emoji: '🖥️',
+    shortDesc: 'Server, Patches, Monitoring – IT-Infrastruktur zuverlässig am Laufen halten.'
+  },
+  {
+    title: 'Cloud',
+    emoji: '☁️',
+    shortDesc: 'AWS, Azure, GCP – skalierbare Architekturen in der Cloud.'
+  },
+  {
+    title: 'Projekt­management',
+    emoji: '🎯',
+    shortDesc: 'Agile, Scrum, Wasserfall – IT-Projekte erfolgreich zum Ziel führen.'
+  },
+  {
+    title: 'Business Intelligence',
+    emoji: '📊',
+    shortDesc: 'Datenanalyse, Dashboards, Reporting – aus Daten Entscheidungen machen.'
+  },
+  {
+    title: 'IT Security',
+    emoji: '🔐',
+    shortDesc: 'Pentesting, SIEM, Compliance – digitale Assets wirksam schützen.'
+  }
+]
+
 // Canvas & Animation
 const matrixCanvas = ref<HTMLCanvasElement | null>(null)
 
+// Deterministic pseudo-random to avoid SSR hydration mismatch
+const seededRandom = (seed: number) => {
+  const x = Math.sin(seed * 9301 + 49297) * 49297
+  return x - Math.floor(x)
+}
+
 const getParticleStyle = (n: number) => {
   return {
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    animationDelay: `${Math.random() * 3}s`,
-    animationDuration: `${3 + Math.random() * 4}s`
+    left: `${seededRandom(n * 7 + 1) * 100}%`,
+    top: `${seededRandom(n * 7 + 2) * 100}%`,
+    animationDelay: `${seededRandom(n * 7 + 3) * 3}s`,
+    animationDuration: `${3 + seededRandom(n * 7 + 4) * 4}s`
   }
 }
 
@@ -540,168 +562,29 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Subtle Grid Background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(61, 210, 204, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 210, 204, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+  width: 100%;
+  height: 100%;
+}
+
 /* Particle Animation */
 .particle {
-  animation: float linear infinite;
+  animation: float-gentle linear infinite;
 }
 
-@keyframes float {
+@keyframes float-gentle {
   0%, 100% {
     transform: translate(0, 0);
-    opacity: 0.3;
+    opacity: 0.15;
   }
   50% {
-    transform: translate(20px, -20px);
-    opacity: 0.8;
+    transform: translate(15px, -15px);
+    opacity: 0.4;
   }
-}
-
-/* Scan Lines */
-.scan-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #3dd2cc, transparent);
-  animation: scan 4s linear infinite;
-}
-
-.scan-line-horizontal {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, #3dd2cc, transparent);
-  animation: scan-horizontal 6s linear infinite;
-}
-
-@keyframes scan {
-  0% {
-    top: 0%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-@keyframes scan-horizontal {
-  0% {
-    left: 0%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
-}
-
-/* Orbital Rings */
-.orbital-ring {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgba(61, 210, 204, 0.2);
-  border-radius: 50%;
-  animation: orbit 10s linear infinite;
-}
-
-@keyframes orbit {
-  0% {
-    transform: rotate(0deg) scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: rotate(180deg) scale(1.1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-    opacity: 0.3;
-  }
-}
-
-/* Data Streams */
-.data-stream {
-  position: absolute;
-  top: -100%;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent, #3dd2cc, transparent);
-  animation: stream-flow linear infinite;
-}
-
-@keyframes stream-flow {
-  0% {
-    top: -100%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-/* Gradient Animation */
-@keyframes gradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-
-/* Perspective Card */
-.perspective-card {
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.perspective-card:hover {
-  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
-}
-
-/* Hexagon Pattern */
-.hexagon-pattern {
-  background-image: 
-    linear-gradient(30deg, transparent 40%, rgba(61, 210, 204, 0.1) 40%, rgba(61, 210, 204, 0.1) 60%, transparent 60%),
-    linear-gradient(-30deg, transparent 40%, rgba(61, 210, 204, 0.1) 40%, rgba(61, 210, 204, 0.1) 60%, transparent 60%);
-  background-size: 40px 70px;
-  background-position: 0 0, 20px 35px;
-  width: 100%;
-  height: 100%;
-}
-
-/* Network Pattern */
-.network-pattern {
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(61, 210, 204, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(61, 210, 204, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  width: 100%;
-  height: 100%;
 }
 </style>

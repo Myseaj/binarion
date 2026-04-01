@@ -45,13 +45,19 @@
             Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
           </p>
           <p class="mb-4">
-            Binarion<br>
-            Musterstraße 123<br>
-            12345 Musterstadt
+            TA Management GmbH<br>
+            Geibelstraße 46b<br>
+            22303 Hamburg
+          </p>
+          <p class="mb-2 text-sm text-gray-400">Binarion ist eine Marke der TA Management GmbH.</p>
+          <p class="mb-4">
+            Tel.: (040) 22 86 69 830<br>
+            E-Mail: <a href="mailto:info@ta-management.de" class="text-[#3dd2cc] hover:underline">info@ta-management.de</a>
           </p>
           <p class="mb-4">
-            Telefon: +49 (0) 123 456789<br>
-            E-Mail: info@binarion.de
+            Geschäftsführer: Aaron Ebermann<br>
+            Registergericht: Amtsgericht Hamburg<br>
+            Registernummer: HRB 138319
           </p>
           <p>
             Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.

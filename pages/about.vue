@@ -57,24 +57,7 @@
             Mit Leidenschaft, Expertise und modernster Technologie bringen wir die besten Talente mit innovativen Unternehmen zusammen.
           </p>
 
-          <!-- Stats -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
-            <div v-for="(stat, index) in stats" :key="index" 
-                 class="group relative bg-gradient-to-br from-[#122d42]/80 to-[#1d486a]/80 backdrop-blur-sm p-6 rounded-2xl border border-[#3dd2cc]/30 hover:border-[#3dd2cc] transition-all duration-500 hover:scale-110 hover:-translate-y-2"
-                 :style="{ animationDelay: `${index * 0.1}s` }">
-              <div class="absolute inset-0 bg-gradient-to-br from-[#3dd2cc]/0 to-[#3dd2cc]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div class="absolute top-0 right-0 w-20 h-20 bg-[#3dd2cc]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div class="relative z-10">
-                <div class="text-3xl lg:text-4xl font-bold text-[#3dd2cc] mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {{ stat.value }}
-                </div>
-                <div class="text-gray-300 text-xs lg:text-sm">{{ stat.label }}</div>
-              </div>
-              
-              <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#3dd2cc] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-          </div>
+
         </div>
       </div>
 
@@ -230,7 +213,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div v-for="(member, index) in team" :key="index"
                class="character-card group relative cursor-pointer flex"
                :style="{ animationDelay: `${index * 0.15}s` }">
@@ -426,13 +409,7 @@ useHead({
   ]
 })
 
-// Stats Data
-const stats = [
-  { value: '500+', label: 'Erfolgreiche Vermittlungen' },
-  { value: '150+', label: 'Partner-Unternehmen' },
-  { value: '95%', label: 'Erfolgsquote' },
-  { value: '5+', label: 'Jahre Erfahrung' }
-]
+
 
 // Values Data
 const values = [
@@ -496,19 +473,7 @@ const team = [
       { name: 'Automated Systems', value: 94 }
     ]
   },
-  {
-    name: 'David Endrulat',
-    role: 'Teamleiter IT-Recruiting',
-    bio: 'Führt unser Recruiting-Team mit Leidenschaft. Spezialist für IT-Fachkräfte und langfristige Kandidatenbeziehungen.',
-    image: '/persons/david-endrulat.1024x1024.jpg',
-    level: 95,
-    class: 'Talent Hunter',
-    stats: [
-      { name: 'Recruiting', value: 97 },
-      { name: 'Networking', value: 93 },
-      { name: 'Team Lead', value: 91 }
-    ]
-  }
+
 ]
 
 // Canvas & Animation
