@@ -329,9 +329,42 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 // Meta Tags
 useHead({
-  title: 'Kandidaten - IT-Jobs & Karriere | Binarion',
+  title: 'IT-Jobs für Kandidaten | Binarion – Tech Recruiting & Karriere',
   meta: [
-    { name: 'description', content: 'Finden Sie Ihren Traumjob in der IT-Branche. Binarion vermittelt Top-IT-Talente an die besten Unternehmen. Professionelle Karriereberatung inklusive.' }
+    { name: 'description', content: 'Finden Sie als IT-Fachkraft Ihren Traumjob: Binarion vermittelt Top-IT-Talente an innovative Unternehmen. Persönliche Karriereberatung, transparente Prozesse, echte Tech-Expertise.' },
+    { name: 'keywords', content: 'IT Jobs, Tech Jobs, Entwickler Jobs, IT Karriere, IT Recruiting, Softwareentwickler, IT-Fachkräfte, IT Stellenangebote, Tech Recruiting, IT Vermittlung, IT Beratung, IT Unternehmen, IT Talente' },
+    { name: 'robots', content: 'index, follow' },
+    { property: 'og:title', content: 'IT-Jobs für Kandidaten | Binarion' },
+    { property: 'og:description', content: 'Finden Sie als IT-Fachkraft Ihren Traumjob: Binarion vermittelt Top-IT-Talente an innovative Unternehmen. Persönliche Karriereberatung, transparente Prozesse, echte Tech-Expertise.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://binarion.de/kandidaten' },
+    { property: 'og:image', content: 'https://binarion.de/og-kandidaten.jpg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'IT-Jobs für Kandidaten | Binarion' },
+    { name: 'twitter:description', content: 'Finden Sie als IT-Fachkraft Ihren Traumjob: Binarion vermittelt Top-IT-Talente an innovative Unternehmen.' },
+    { name: 'twitter:image', content: 'https://binarion.de/og-kandidaten.jpg' },
+    { rel: 'canonical', href: 'https://binarion.de/kandidaten' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://binarion.de/kandidaten' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        'name': 'IT-Jobs für Kandidaten | Binarion',
+        'description': 'Finden Sie als IT-Fachkraft Ihren Traumjob: Binarion vermittelt Top-IT-Talente an innovative Unternehmen. Persönliche Karriereberatung, transparente Prozesse, echte Tech-Expertise.',
+        'url': 'https://binarion.de/kandidaten',
+        'inLanguage': 'de',
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Binarion',
+          'url': 'https://binarion.de'
+        }
+      })
+    }
   ]
 })
 
@@ -500,8 +533,9 @@ const getParticleStyle = (n: number) => {
   }
 }
 
-// Matrix Animation
+// Matrix Animation nur auf nicht-mobilen Geräten
 const drawMatrix = () => {
+  if (window.innerWidth < 768) return // mobile: keine Animation
   const canvas = matrixCanvas.value
   if (!canvas) return
 

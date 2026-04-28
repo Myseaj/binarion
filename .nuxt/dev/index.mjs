@@ -1016,7 +1016,7 @@ const _H7N8oMTnPC6IJY7G8ggp2PtHzHTZ2vc7GayYoP6tzNI = (function(nitro) {
 
 const rootDir = "/Users/Shared/Apps/binarion";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Binarion – Die 1 im digitalen Recruiting."}],"link":[],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"Binarion"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Binarion – Die 1 im digitalen Recruiting."}],"link":[{"rel":"icon","type":"image/png","href":"/favicon/sm.png"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"Binarion"};
 
 const appRootTag = "div";
 

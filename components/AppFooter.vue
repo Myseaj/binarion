@@ -12,6 +12,27 @@
         <div v-for="i in 10" :key="i" class="footer-binary" :style="getFooterBinaryStyle(i)">
           {{ getFooterBinaryChar(i) }}
         </div>
+
+        <!-- Logos Section -->
+        <div class="mt-8">
+          <h4 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+            <span class="w-1 h-4 bg-[#3dd2cc] rounded-full"></span>
+            Unsere Logos
+          </h4>
+          <div class="flex flex-wrap gap-6 items-center">
+            <!-- PNG Logos -->
+            <img src="/For Web/png/Black logo - no background.png" alt="Binarion Logo Schwarz" class="h-12 bg-white rounded p-1" />
+            <img src="/For Web/png/Color logo - no background.png" alt="Binarion Logo Farbe" class="h-12 bg-white rounded p-1" />
+            <img src="/For Web/png/Color logo with background.png" alt="Binarion Logo Farbe BG" class="h-12 bg-white rounded p-1" />
+            <img src="/For Web/png/White logo - no background.png" alt="Binarion Logo Weiß" class="h-12 bg-gray-800 rounded p-1" />
+            <!-- SVG Logos -->
+            <img src="/For Web/svg/Black logo - no background.svg" alt="Binarion Logo SVG Schwarz" class="h-12 bg-white rounded p-1" />
+            <img src="/For Web/svg/Color logo - no background.svg" alt="Binarion Logo SVG Farbe" class="h-12 bg-white rounded p-1" />
+            <img src="/For Web/svg/Color logo with background.svg" alt="Binarion Logo SVG Farbe BG" class="h-12 bg-white rounded p-1" />
+            <img src="/For Web/svg/White logo - no background.svg" alt="Binarion Logo SVG Weiß" class="h-12 bg-gray-800 rounded p-1" />
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Alle Logos stehen als PNG und SVG zur Verfügung.</p>
+        </div>
       </div>
 
       <!-- Glowing Orbs -->

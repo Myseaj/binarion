@@ -631,9 +631,42 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 // Page configuration
 useHead({
-  title: 'Binarion - Die 1 im digitalen Recruiting',
+  title: 'Binarion – IT-Recruiting, Tech-Jobs & digitale Talente',
   meta: [
-    { name: 'description', content: 'Binarion - Digitale Talente für Ihre IT-Zukunft. Top IT-Recruiting mit blitzschneller Vermittlung und präzisem Matching.' }
+    { name: 'description', content: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise für Unternehmen & Kandidaten.' },
+    { name: 'keywords', content: 'IT Recruiting, IT Jobs, Tech Jobs, Entwickler Jobs, IT Talente, IT Vermittlung, IT Beratung, IT Unternehmen, IT Karriere, Softwareentwickler, digitale Talente, Tech Recruiting, Executive Search' },
+    { name: 'robots', content: 'index, follow' },
+    { property: 'og:title', content: 'Binarion – IT-Recruiting, Tech-Jobs & digitale Talente' },
+    { property: 'og:description', content: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise für Unternehmen & Kandidaten.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://binarion.de/' },
+    { property: 'og:image', content: 'https://binarion.de/og-index.jpg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Binarion – IT-Recruiting, Tech-Jobs & digitale Talente' },
+    { name: 'twitter:description', content: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise.' },
+    { name: 'twitter:image', content: 'https://binarion.de/og-index.jpg' },
+    { rel: 'canonical', href: 'https://binarion.de/' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://binarion.de/' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'Binarion',
+        'url': 'https://binarion.de/',
+        'description': 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise für Unternehmen & Kandidaten.',
+        'inLanguage': 'de',
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Binarion',
+          'url': 'https://binarion.de/'
+        }
+      })
+    }
   ]
 })
 

@@ -18,9 +18,9 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Binarion – Die 1 im digitalen Recruiting.' }
       ],
       // Add link to favicon, etc. if needed
-      // link: [
-      //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      // ]
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon/sm.png' }
+      ]
     }
   },
 
