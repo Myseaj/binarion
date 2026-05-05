@@ -12,27 +12,6 @@
         <div v-for="i in 10" :key="i" class="footer-binary" :style="getFooterBinaryStyle(i)">
           {{ getFooterBinaryChar(i) }}
         </div>
-
-        <!-- Logos Section -->
-        <div class="mt-8">
-          <h4 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-            <span class="w-1 h-4 bg-[#3dd2cc] rounded-full"></span>
-            Unsere Logos
-          </h4>
-          <div class="flex flex-wrap gap-6 items-center">
-            <!-- PNG Logos -->
-            <img src="/For Web/png/Black logo - no background.png" alt="Binarion Logo Schwarz" class="h-12 bg-white rounded p-1" />
-            <img src="/For Web/png/Color logo - no background.png" alt="Binarion Logo Farbe" class="h-12 bg-white rounded p-1" />
-            <img src="/For Web/png/Color logo with background.png" alt="Binarion Logo Farbe BG" class="h-12 bg-white rounded p-1" />
-            <img src="/For Web/png/White logo - no background.png" alt="Binarion Logo Weiß" class="h-12 bg-gray-800 rounded p-1" />
-            <!-- SVG Logos -->
-            <img src="/For Web/svg/Black logo - no background.svg" alt="Binarion Logo SVG Schwarz" class="h-12 bg-white rounded p-1" />
-            <img src="/For Web/svg/Color logo - no background.svg" alt="Binarion Logo SVG Farbe" class="h-12 bg-white rounded p-1" />
-            <img src="/For Web/svg/Color logo with background.svg" alt="Binarion Logo SVG Farbe BG" class="h-12 bg-white rounded p-1" />
-            <img src="/For Web/svg/White logo - no background.svg" alt="Binarion Logo SVG Weiß" class="h-12 bg-gray-800 rounded p-1" />
-          </div>
-          <p class="text-xs text-gray-500 mt-2">Alle Logos stehen als PNG und SVG zur Verfügung.</p>
-        </div>
       </div>
 
       <!-- Glowing Orbs -->
@@ -44,18 +23,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <!-- Brand Column -->
         <div class="space-y-6">
-          <div class="flex items-center gap-3 group cursor-pointer">
-            <div class="relative w-12 h-12 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center shadow-lg shadow-[#3dd2cc]/20 overflow-hidden group-hover:shadow-[#3dd2cc]/50 transition-all duration-500">
-              <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-              <span class="text-3xl font-bold text-[#07121a] relative z-10 group-hover:scale-110 transition-transform duration-300">1</span>
-              <!-- Scan Line -->
-              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent h-[200%] w-full -translate-y-full group-hover:translate-y-full transition-transform duration-1000 ease-in-out"></div>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-white group-hover:text-[#3dd2cc] transition-colors duration-300">Binarion</h3>
-              <p class="text-xs text-[#3dd2cc] font-mono tracking-wider">SYSTEM.ONLINE</p>
-            </div>
-          </div>
+          <NuxtLink to="/" class="inline-block group">
+            <img 
+              src="/img/logo/color.svg" 
+              alt="Binarion - Die 1 im digitalen Recruiting" 
+              class="h-20 w-auto transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-[0_0_16px_rgba(61,210,204,0.4)]"
+            />
+          </NuxtLink>
           <p class="text-gray-400 leading-relaxed">
             Die 1 im digitalen Recruiting. Wir verbinden Tech-Talente mit Unternehmen, die den Code der Zukunft schreiben.
           </p>
@@ -140,7 +114,7 @@ const services = [
 // Deterministic pseudo-random to avoid SSR hydration mismatch
 const seededRandom = (seed) => {
   const x = Math.sin(seed * 9301 + 49297) * 49297
-  return x - Math.floor(x)
+  return Math.round((x - Math.floor(x)) * 10000) / 10000
 }
 
 const getFooterBinaryStyle = (i) => {

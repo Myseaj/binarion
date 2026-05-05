@@ -30,28 +30,13 @@
 
       <div class="container mx-auto max-w-7xl relative z-10">
         <div class="text-center space-y-8">
-          <!-- Logo/Brand with Hologram Effect -->
-          <div class="inline-flex items-center gap-3 mb-4 perspective-1000">
-            <div class="logo-3d w-16 h-16 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center shadow-lg shadow-[#3dd2cc]/50 relative overflow-hidden group cursor-pointer"
-                 @mouseenter="logoHovered = true"
-                 @mouseleave="logoHovered = false">
-              <span class="text-4xl font-bold text-[#07121a] relative z-10 transition-transform duration-300"
-                    :class="{ 'scale-110': logoHovered }">1</span>
-              <!-- Scan Line Effect -->
-              <div class="scan-line absolute inset-0 bg-gradient-to-b from-transparent via-white to-transparent opacity-0 group-hover:opacity-30"></div>
-              <!-- Binary Particles -->
-              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div v-for="n in 8" :key="n" class="binary-particle absolute text-[10px] font-mono text-[#07121a] font-bold">
-                  {{ Math.random() > 0.5 ? '1' : '0' }}
-                </div>
-              </div>
-            </div>
-            <h1 class="text-5xl lg:text-7xl font-bold relative">
-              <span class="glitch-text bg-gradient-to-r from-[#66dcd7] to-[#3dd2cc] bg-clip-text text-transparent"
-                    data-text="Binarion">
-                Binarion
-              </span>
-            </h1>
+          <!-- Logo -->
+          <div class="inline-block mb-4">
+            <img 
+              src="/img/logo/color.svg" 
+              alt="Binarion - Die 1 im digitalen Recruiting" 
+              class="h-24 lg:h-32 w-auto mx-auto drop-shadow-[0_0_20px_rgba(61,210,204,0.3)]"
+            />
           </div>
 
           <!-- Slogan with Typewriter Effect -->

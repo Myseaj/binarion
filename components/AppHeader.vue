@@ -17,47 +17,12 @@
     <nav class="container mx-auto px-4 lg:px-6 relative z-10">
       <div class="flex items-center justify-between h-20">
         <!-- Logo with Advanced Effects -->
-        <NuxtLink to="/" class="flex items-center gap-3 group relative">
-          <!-- Hologram Scanner -->
-          <div class="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div class="hologram-scanner"></div>
-          </div>
-          
-          <div class="logo-container relative w-10 h-10 bg-gradient-to-br from-[#3dd2cc] to-[#29b3ad] rounded-lg flex items-center justify-center shadow-lg shadow-[#3dd2cc]/50 group-hover:shadow-2xl group-hover:shadow-[#3dd2cc]/80 transition-all duration-500 overflow-hidden"
-               @mouseenter="logoHovered = true"
-               @mouseleave="logoHovered = false">
-            <!-- Rotating Border -->
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div class="rotating-border"></div>
-            </div>
-            
-            <!-- Digital Particles -->
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div v-for="n in 6" :key="n" class="logo-particle absolute w-1 h-1 bg-[#07121a] rounded-full"
-                   :style="getLogoParticleStyle(n)"></div>
-            </div>
-            
-            <span class="text-2xl font-bold text-[#07121a] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-              1
-            </span>
-            
-            <!-- Scan Effect -->
-            <div class="scan-effect absolute inset-0 bg-gradient-to-b from-transparent via-white to-transparent opacity-0 group-hover:opacity-40"></div>
-          </div>
-          
-          <div class="hidden sm:block relative">
-            <span class="text-2xl font-bold bg-gradient-to-r from-[#66dcd7] to-[#3dd2cc] bg-clip-text text-transparent group-hover:from-[#3dd2cc] group-hover:to-[#66dcd7] transition-all duration-500">
-              Binarion
-            </span>
-            <!-- Glitch Lines -->
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class="glitch-line glitch-line-1"></div>
-              <div class="glitch-line glitch-line-2"></div>
-            </div>
-            <p class="text-xs text-gray-400 -mt-1 group-hover:text-[#3dd2cc] transition-colors duration-300">
-              <span class="typing-cursor">Die 1 im digitalen Recruiting</span>
-            </p>
-          </div>
+        <NuxtLink to="/" class="flex items-center group relative">
+          <img 
+            src="/img/logo/color.svg" 
+            alt="Binarion - Die 1 im digitalen Recruiting" 
+            class="h-14 w-auto transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-[0_0_12px_rgba(61,210,204,0.5)]"
+          />
         </NuxtLink>
 
         <!-- Desktop Navigation -->
@@ -532,7 +497,7 @@ const handleScroll = () => {
 // Deterministic pseudo-random to avoid SSR hydration mismatch
 const seededRandom = (seed) => {
   const x = Math.sin(seed * 9301 + 49297) * 49297
-  return x - Math.floor(x)
+  return Math.round((x - Math.floor(x)) * 10000) / 10000
 }
 
 // Generate Binary Background (client-only, no hydration issue)
@@ -563,8 +528,8 @@ const getLogoParticleStyle = (n) => {
   const angle = (n * 60) * (Math.PI / 180)
   const radius = 20
   return {
-    left: `${50 + Math.cos(angle) * radius}%`,
-    top: `${50 + Math.sin(angle) * radius}%`,
+    left: `${Math.round((50 + Math.cos(angle) * radius) * 10000) / 10000}%`,
+    top: `${Math.round((50 + Math.sin(angle) * radius) * 10000) / 10000}%`,
     animationDelay: `${n * 0.1}s`
   }
 }
