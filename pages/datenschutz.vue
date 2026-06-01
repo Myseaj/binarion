@@ -95,9 +95,11 @@
 
 <script setup>
 useHead({
-  title: 'Datenschutz - Binarion',
+  title: 'Datenschutz',
   meta: [
+    { name: 'description', content: 'Datenschutzerklarung von Binarion gemass DSGVO.' },
     { name: 'robots', content: 'noindex, nofollow' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://binarion.de/datenschutz' }]
 })
 </script>

@@ -273,6 +273,16 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const token = route.query.token;
 
+useSeoMeta({
+  title: 'Feedback',
+  description: 'Vertrauliche Feedback-Seite fur Kandidatenprofile.',
+  robots: 'noindex, nofollow, noarchive, nosnippet'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: 'https://binarion.de/feedback' }]
+})
+
 // Refs
 const matrixCanvas = ref(null);
 const comment = ref('');

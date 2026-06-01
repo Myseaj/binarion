@@ -71,9 +71,11 @@
 
 <script setup>
 useHead({
-  title: 'Impressum - Binarion',
+  title: 'Impressum',
   meta: [
+    { name: 'description', content: 'Impressum und Anbieterkennzeichnung von Binarion.' },
     { name: 'robots', content: 'noindex, nofollow' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://binarion.de/impressum' }]
 })
 </script>

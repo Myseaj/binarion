@@ -615,25 +615,28 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 // Page configuration
+const canonicalUrl = 'https://binarion.de/'
+const ogImageUrl = 'https://binarion.de/img/Logo.png'
+
+useSeoMeta({
+  title: 'IT-Recruiting, Tech-Jobs und digitale Talente',
+  description: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise für Unternehmen und Kandidaten.',
+  keywords: 'IT Recruiting, IT Jobs, Tech Jobs, Entwickler Jobs, IT Talente, IT Vermittlung, IT Beratung, IT Karriere, Softwareentwickler, Tech Recruiting, Executive Search',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  ogTitle: 'Binarion - IT-Recruiting, Tech-Jobs und digitale Talente',
+  ogDescription: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise.',
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: ogImageUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Binarion - IT-Recruiting, Tech-Jobs und digitale Talente',
+  twitterDescription: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung und präzises Matching.',
+  twitterImage: ogImageUrl
+})
+
 useHead({
-  title: 'Binarion – IT-Recruiting, Tech-Jobs & digitale Talente',
-  meta: [
-    { name: 'description', content: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise für Unternehmen & Kandidaten.' },
-    { name: 'keywords', content: 'IT Recruiting, IT Jobs, Tech Jobs, Entwickler Jobs, IT Talente, IT Vermittlung, IT Beratung, IT Unternehmen, IT Karriere, Softwareentwickler, digitale Talente, Tech Recruiting, Executive Search' },
-    { name: 'robots', content: 'index, follow' },
-    { property: 'og:title', content: 'Binarion – IT-Recruiting, Tech-Jobs & digitale Talente' },
-    { property: 'og:description', content: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise für Unternehmen & Kandidaten.' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://binarion.de/' },
-    { property: 'og:image', content: 'https://binarion.de/og-index.jpg' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Binarion – IT-Recruiting, Tech-Jobs & digitale Talente' },
-    { name: 'twitter:description', content: 'Binarion ist die 1 im digitalen Recruiting: IT-Jobs, Tech-Talente, blitzschnelle Vermittlung, präzises Matching und echte Entwickler-Expertise.' },
-    { name: 'twitter:image', content: 'https://binarion.de/og-index.jpg' },
-    { rel: 'canonical', href: 'https://binarion.de/' }
-  ],
   link: [
-    { rel: 'canonical', href: 'https://binarion.de/' }
+    { rel: 'canonical', href: canonicalUrl }
   ],
   script: [
     {

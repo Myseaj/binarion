@@ -444,7 +444,6 @@
 import { ref, onMounted, computed, watch, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { createClient } from '@supabase/supabase-js';
-import { useHead } from '#app';
 
 const supabaseUrl = 'https://vccbpwvprepehqxatnuo.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjY2Jwd3ZwcmVwZWhxeGF0bnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUwNjY3MjQsImV4cCI6MTk5MDY0MjcyNH0.zEG6vuzJyiT0penToBCqyTWJnaHjmjGU0TbM7mQkJVY';
@@ -596,23 +595,38 @@ const applyLink = computed(() => {
   return '/kandidaten';
 });
 
-const setupHead = () => {
-  if (job.value) {
-    useHead({
-      title: `${job.value.title || 'Stellenangebot'} - Binarion`,
-      meta: [
-        { name: 'description', content: job.value.short_description || `Details zur Stelle ${job.value.title || ''} bei Binarion.` }
-      ]
-    });
-  } else {
-    useHead({
-      title: 'Stellenangebot - Binarion',
-      meta: [
-        { name: 'description', content: 'Details zu einem Stellenangebot bei Binarion.' }
-      ]
-    });
-  }
-};
+const canonicalUrl = computed(() => `https://binarion.de/job/${jobId}`)
+const ogImageUrl = computed(() => `https://binarion.de${heroImageUrl.value || defaultHeroImageUrl}`)
+const seoTitle = computed(() => job.value?.title || 'Stellenangebot')
+const seoDescription = computed(() => {
+  if (job.value?.short_description) return job.value.short_description
+  if (job.value?.title) return `Details zur Stelle ${job.value.title} bei Binarion.`
+  return 'Details zu einem Stellenangebot bei Binarion.'
+})
+
+useSeoMeta({
+  title: () => seoTitle.value,
+  description: () => seoDescription.value,
+  robots: () => (error.value ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'),
+  ogTitle: () => `${seoTitle.value} - Binarion`,
+  ogDescription: () => seoDescription.value,
+  ogType: 'article',
+  ogUrl: () => canonicalUrl.value,
+  ogImage: () => ogImageUrl.value,
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => `${seoTitle.value} - Binarion`,
+  twitterDescription: () => seoDescription.value,
+  twitterImage: () => ogImageUrl.value
+})
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: () => canonicalUrl.value
+    }
+  ]
+})
 
 function drawMatrix() {
   const canvas = matrixCanvas.value
@@ -655,7 +669,6 @@ function drawMatrix() {
 
 onMounted(async () => {
   await fetchJobDetails();
-  setupHead();
   const matrixInterval = drawMatrix()
   
   // Mouse tracking for interactive effects
@@ -671,8 +684,6 @@ onMounted(async () => {
     window.removeEventListener('mousemove', handleMouseMove)
   })
 });
-
-watch(job, setupHead, { immediate: true });
 </script>
 
 <style scoped>

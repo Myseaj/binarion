@@ -411,6 +411,16 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
+useSeoMeta({
+  title: 'Talente finden Backup',
+  description: 'Interne Backup-Seite.',
+  robots: 'noindex, nofollow, noarchive, nosnippet'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: 'https://binarion.de/talente-finden-backup' }]
+})
+
 const currentStep = ref(0)
 const totalSteps = 7
 const showSuccessModal = ref(false)

@@ -398,14 +398,29 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// Meta Tags
+const canonicalUrl = 'https://binarion.de/about'
+const ogImageUrl = 'https://binarion.de/img/Logo.png'
+
 useHead({
-  title: 'Über uns - Binarion IT-Recruiting',
+  title: 'Uber uns und unser Team',
   meta: [
-    { name: 'description', content: 'Erfahren Sie mehr über Binarion - Ihr spezialisierter Partner für IT-Recruiting. Mission, Vision, Werte und unser engagiertes Team.' }
+    { name: 'description', content: 'Erfahren Sie mehr uber Binarion, unseren Ansatz im IT-Recruiting, unsere Werte und das Team hinter der digitalen Talentvermittlung.' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    { property: 'og:title', content: 'Uber uns - Binarion' },
+    { property: 'og:description', content: 'Erfahren Sie mehr uber Binarion, unseren Ansatz im IT-Recruiting und unser Team.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: canonicalUrl },
+    { property: 'og:image', content: ogImageUrl },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Uber uns - Binarion' },
+    { name: 'twitter:description', content: 'Erfahren Sie mehr uber Binarion und unser Team.' },
+    { name: 'twitter:image', content: ogImageUrl }
+  ],
+  link: [
+    { rel: 'canonical', href: canonicalUrl }
   ]
 })
 
@@ -479,7 +494,7 @@ const team = [
 // Canvas & Animation
 const matrixCanvas = ref<HTMLCanvasElement | null>(null)
 
-const getParticleStyle = (n: number) => {
+const getParticleStyle = (n) => {
   return {
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
@@ -502,7 +517,7 @@ const drawMatrix = () => {
   const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
   const fontSize = 14
   const columns = canvas.width / fontSize
-  const drops: number[] = []
+  const drops = []
 
   for (let i = 0; i < columns; i++) {
     drops[i] = Math.random() * -100

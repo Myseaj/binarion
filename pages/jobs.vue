@@ -262,11 +262,26 @@
 import { ref, onMounted, watchEffect } from "vue";
 import useGlobalState from "~/composables/useGlobalState";
 
+const canonicalUrl = 'https://binarion.de/jobs'
+const ogImageUrl = 'https://binarion.de/img/Logo.png'
+
+useSeoMeta({
+  title: 'IT Jobs und Stellenangebote',
+  description: 'Entdecken Sie aktuelle IT-Jobs bei Top-Unternehmen. Finden Sie passende Stellenangebote in Entwicklung, Cloud, Security und mehr.',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  ogTitle: 'IT Jobs und Stellenangebote - Binarion',
+  ogDescription: 'Entdecken Sie aktuelle IT-Jobs bei Top-Unternehmen und finden Sie passende Stellenangebote.',
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: ogImageUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'IT Jobs und Stellenangebote - Binarion',
+  twitterDescription: 'Entdecken Sie aktuelle IT-Jobs bei Top-Unternehmen.',
+  twitterImage: ogImageUrl
+})
+
 useHead({
-  title: 'Jobs - Binarion',
-  meta: [
-    { name: 'description', content: 'Entdecke aktuelle IT-Jobs bei Top-Unternehmen. Dein Traumjob wartet!' }
-  ]
+  link: [{ rel: 'canonical', href: canonicalUrl }]
 })
 
 const {

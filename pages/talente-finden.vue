@@ -345,6 +345,28 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
+const canonicalUrl = 'https://binarion.de/talente-finden'
+const ogImageUrl = 'https://binarion.de/img/Logo.png'
+
+useSeoMeta({
+  title: 'Talente finden',
+  description: 'Beschreiben Sie in wenigen Schritten Ihr Anforderungsprofil und finden Sie passende IT-Talente mit Binarion.',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  ogTitle: 'Talente finden - Binarion',
+  ogDescription: 'Anforderungsprofil ausfullen und passende IT-Talente finden.',
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: ogImageUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Talente finden - Binarion',
+  twitterDescription: 'Anforderungsprofil ausfullen und passende IT-Talente finden.',
+  twitterImage: ogImageUrl
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: canonicalUrl }]
+})
+
 const currentStep = ref(0)
 const totalSteps = 4
 const showSuccessModal = ref(false)

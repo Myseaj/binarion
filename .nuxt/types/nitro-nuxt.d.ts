@@ -1,4 +1,6 @@
 
+/// <reference path="../module/nuxt-site-config.d.ts" />
+/// <reference path="nuxt-robots-nitro.d.ts" />
 /// <reference path="nitro-middleware.d.ts" />
 /// <reference path="./schema.d.ts" />
 

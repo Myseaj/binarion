@@ -152,11 +152,26 @@
 <script setup>
 import { ref } from 'vue'
 
+const canonicalUrl = 'https://binarion.de/contact'
+const ogImageUrl = 'https://binarion.de/img/Logo.png'
+
+useSeoMeta({
+  title: 'Kontakt',
+  description: 'Kontaktieren Sie Binarion fur IT-Recruiting, Talentvermittlung und ein unverbindliches Erstgesprach.',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  ogTitle: 'Kontakt - Binarion',
+  ogDescription: 'Kontaktieren Sie Binarion fur IT-Recruiting und Talentvermittlung.',
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: ogImageUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Kontakt - Binarion',
+  twitterDescription: 'Kontaktieren Sie Binarion fur IT-Recruiting und Talentvermittlung.',
+  twitterImage: ogImageUrl
+})
+
 useHead({
-  title: 'Kontakt - Binarion',
-  meta: [
-    { name: 'description', content: 'Kontaktieren Sie Binarion – Ihr spezialisierter Partner für IT-Recruiting. Wir freuen uns auf Ihre Nachricht.' }
-  ]
+  link: [{ rel: 'canonical', href: canonicalUrl }]
 })
 
 const WEBHOOK_URL = 'https://chat.googleapis.com/v1/spaces/AAQAQtXMCik/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=nmBuW9WfUvjXFBWof_fXSGtQHupE3q5fwK1hUA1wl9A'

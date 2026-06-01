@@ -708,11 +708,26 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
+const canonicalUrl = 'https://binarion.de/partner'
+const ogImageUrl = 'https://binarion.de/img/Logo.png'
+
+useSeoMeta({
+  title: 'Fur Unternehmen',
+  description: 'IT-Recruiting fur Unternehmen: Talente finden, Executive Search, Teamaufbau und schnelle Besetzung von Tech-Positionen.',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  ogTitle: 'IT-Recruiting fur Unternehmen - Binarion',
+  ogDescription: 'Talente finden, Executive Search und schnelle Besetzung von Tech-Positionen.',
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: ogImageUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'IT-Recruiting fur Unternehmen - Binarion',
+  twitterDescription: 'Talente finden, Executive Search und schnelle Besetzung von Tech-Positionen.',
+  twitterImage: ogImageUrl
+})
+
 useHead({
-  title: 'Für Unternehmen - Binarion',
-  meta: [
-    { name: 'description', content: 'IT-Recruiting Services für Unternehmen. Talente finden, Executive Search, Team-Building und Employer Branding.' }
-  ]
+  link: [{ rel: 'canonical', href: canonicalUrl }]
 })
 
 const matrixCanvas = ref(null)
