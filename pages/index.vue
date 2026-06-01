@@ -44,10 +44,9 @@
             Die <span class="text-[#3dd2cc] font-bold pulse-glow">1</span> im digitalen Recruiting
           </p>
 
-          <!-- Main Headline with Typing Effect -->
+          <!-- Main Headline -->
           <h1 class="text-3xl lg:text-5xl font-bold text-white max-w-4xl mx-auto leading-tight">
-            <span class="typing-text">{{ displayText }}</span>
-            <span class="cursor-blink">|</span>
+            IT-Recruiting auf Code-Ebene
           </h1>
 
           <!-- Subheadline -->
@@ -165,9 +164,9 @@
     <section class="relative z-10 py-20 px-4 bg-gradient-to-br from-[#122d42]/50 to-[#1d486a]/50 backdrop-blur-sm">
       <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
-          <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
             Was uns von klassischen Recruitern <span class="text-[#3dd2cc]">unterscheidet</span>
-          </h3>
+          </h2>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
             Unser eigenes Entwicklerteam ist nicht nur Marketing. Es ist unser Fundament.
           </p>
@@ -193,7 +192,7 @@
                 <!-- Icon Pulse -->
                 <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500 rounded-lg"></div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Technisches Tiefenwissen</h4>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Technisches Tiefenwissen</h3>
               <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                 Wir verstehen den Unterschied zwischen Microservices und Monolithen, zwischen React und Vue, zwischen SQL und NoSQL. Weil wir es täglich selbst entwickeln. Keine Buzzword-Bingo – echtes Tech-Verständnis.
               </p>
@@ -224,7 +223,7 @@
                 </svg>
                 <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500 rounded-lg"></div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Kommunikation auf Augenhöhe</h4>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Kommunikation auf Augenhöhe</h3>
               <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                 Ihre Kandidaten merken sofort: Hier sitzt kein HR-Generalist, sondern jemand, der ihre Sprache spricht. Ihre CTOs wissen: Wir verstehen ihre technischen Probleme wirklich. Das schafft Vertrauen – auf beiden Seiten.
               </p>
@@ -267,7 +266,7 @@
                 </svg>
                 <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500 rounded-lg"></div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Schnelle, moderne Prozesse</h4>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#3dd2cc] transition-colors duration-300">Schnelle, moderne Prozesse</h3>
               <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                 Unsere intern entwickelte Software optimiert jeden Schritt: vom Sourcing bis zum Match. Datengetrieben, automatisiert, wo sinnvoll – menschlich, wo nötig. Reaktionszeit unter 12 Stunden. Keine Zeitverschwendung.
               </p>
@@ -286,9 +285,9 @@
     <section class="relative z-10 py-20 px-4">
       <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
-          <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
             Unsere <span class="text-[#3dd2cc]">Leistungen</span>
-          </h3>
+          </h2>
           <p class="text-gray-300 text-lg max-w-2xl mx-auto">
             Präzise Vermittlung in den gefragtesten IT-Bereichen
           </p>
@@ -302,7 +301,7 @@
                 <span class="text-2xl font-bold text-[#07121a]">1</span>
               </div>
               <div>
-                <h4 class="text-2xl font-bold text-white mb-4">Für Unternehmen</h4>
+                <h3 class="text-2xl font-bold text-white mb-4">Für Unternehmen</h3>
                 <p class="text-gray-400 mb-6">Sie suchen nicht irgendwen. Sie suchen jemanden, der Ihr Tech-Problem versteht und lösen kann. Wir auch.</p>
                 <ul class="space-y-3 text-gray-300">
                   <li class="flex items-center gap-3">
@@ -344,7 +343,7 @@
                 <span class="text-2xl font-bold text-[#07121a]">0</span>
               </div>
               <div>
-                <h4 class="text-2xl font-bold text-white mb-4">Für IT-Kandidaten</h4>
+                <h3 class="text-2xl font-bold text-white mb-4">Für IT-Kandidaten</h3>
                 <p class="text-gray-400 mb-6">Endlich ein Recruiter, der Ihren Stack kennt. Kein Buzzword-Bingo. Echte Fachgespräche.</p>
                 <ul class="space-y-3 text-gray-300">
                   <li class="flex items-center gap-3">
@@ -409,7 +408,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">IT Project Management</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">IT Project Management</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">PMP, Scrum, SAFe, Agile</p>
             <!-- Tech Tags -->
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
@@ -433,7 +432,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">ERP/SAP Consulting</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">ERP/SAP Consulting</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">S/4HANA, Module, Integration</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">S/4HANA</span>
@@ -455,7 +454,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Cloud & DevOps</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Cloud & DevOps</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">AWS, Azure, Kubernetes</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">AWS</span>
@@ -477,7 +476,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Cybersecurity</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Cybersecurity</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Audit, Compliance, CISSP</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">CISSP</span>
@@ -499,7 +498,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">IT-Architektur</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">IT-Architektur</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Solution, Enterprise, Cloud</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Microservices</span>
@@ -521,7 +520,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Data Engineering & BI</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Data Engineering & BI</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Analytics, ETL, Data Warehouse</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Python</span>
@@ -543,7 +542,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Full-Stack Development</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">Full-Stack Development</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Java, Spring, React, Angular</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Java</span>
@@ -565,7 +564,7 @@
                 <div class="absolute inset-0 bg-[#3dd2cc] opacity-0 group-hover:opacity-20 rounded-2xl animate-ping-slow"></div>
               </div>
             </div>
-            <h5 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">UI/UX Design</h5>
+            <h3 class="text-white font-bold mb-2 text-lg group-hover:text-[#3dd2cc] transition-colors duration-300 relative z-10">UI/UX Design</h3>
             <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10 mb-3">Product Design, User Research</p>
             <div class="flex flex-wrap gap-1 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 relative z-10">
               <span class="text-xs px-2 py-1 bg-[#3dd2cc]/10 text-[#3dd2cc] rounded border border-[#3dd2cc]/30">Figma</span>
@@ -583,9 +582,9 @@
     <section class="relative z-10 py-20 px-4">
       <div class="container mx-auto max-w-5xl">
         <div class="bg-gradient-to-br from-[#122d42]/70 to-[#1d486a]/50 border border-[#3dd2cc]/20 rounded-3xl p-8 lg:p-12 backdrop-blur-sm">
-          <h3 class="text-3xl lg:text-4xl font-bold text-white mb-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-8">
             IT-Recruiting, Tech-Jobs und digitale Talente: Warum der Unterschied im Detail entsteht
-          </h3>
+          </h2>
 
           <div class="space-y-6 text-gray-300 text-base lg:text-lg leading-relaxed">
             <p>
@@ -601,11 +600,11 @@
             </p>
 
             <p>
-              Fuer Unternehmen bedeutet das planbare Besetzungen, klare Kommunikation, kuerzere Entscheidungswege und Kandidatenprofile, die nicht als Massenware weitergeleitet werden, sondern mit begruendetem Kontext, nachvollziehbarer Einordnung und relevanten Fakten aufbereitet sind, sodass Hiring-Teams schneller priorisieren, fundierter vergleichen und verlaesslicher entscheiden koennen, ohne bei Qualitaet, Geschwindigkeit oder Candidate Experience Kompromisse einzugehen.
+              Für Unternehmen bedeutet das planbare Besetzungen, klare Kommunikation, kuerzere Entscheidungswege und Kandidatenprofile, die nicht als Massenware weitergeleitet werden, sondern mit begruendetem Kontext, nachvollziehbarer Einordnung und relevanten Fakten aufbereitet sind, sodass Hiring-Teams schneller priorisieren, fundierter vergleichen und verlaesslicher entscheiden koennen, ohne bei Qualitaet, Geschwindigkeit oder Candidate Experience Kompromisse einzugehen.
             </p>
 
             <p>
-              Fuer Kandidatinnen und Kandidaten entsteht gleichzeitig ein Prozess, der respektvoll, transparent und professionell bleibt, weil Erwartungen zu Stack, Verantwortung, Verguetung, Senioritaet und Arbeitsmodell frueh geklaert werden, weil Tech-Jobs nicht als austauschbare Titel, sondern als konkrete Entwicklungsoptionen verstanden werden und weil digitale Talente dadurch die Sicherheit gewinnen, nur mit Rollen in Gespraeche zu gehen, die wirklich zum Profil und zur persoenlichen Perspektive passen.
+              Für Kandidatinnen und Kandidaten entsteht gleichzeitig ein Prozess, der respektvoll, transparent und professionell bleibt, weil Erwartungen zu Stack, Verantwortung, Verguetung, Senioritaet und Arbeitsmodell frueh geklaert werden, weil Tech-Jobs nicht als austauschbare Titel, sondern als konkrete Entwicklungsoptionen verstanden werden und weil digitale Talente dadurch die Sicherheit gewinnen, nur mit Rollen in Gespraeche zu gehen, die wirklich zum Profil und zur persoenlichen Perspektive passen.
             </p>
 
             <p>
@@ -627,9 +626,9 @@
           </div>
 
           <div class="relative z-10 text-center">
-            <h3 class="text-4xl lg:text-5xl font-bold text-[#07121a] mb-6">
+            <h2 class="text-4xl lg:text-5xl font-bold text-[#07121a] mb-6">
               Lassen Sie uns sprechen.
-            </h3>
+            </h2>
             <p class="text-xl text-[#122d42] mb-10 max-w-2xl mx-auto">
               Ob Unternehmen oder Kandidat: Wenn Sie jemanden suchen, der Tech wirklich versteht – wir sind bereit.
             </p>
